@@ -1,14 +1,24 @@
-# Setup
+# Ruby Setup
 
 1. Install the latest Ruby
-2. Install the latest Rails
-3. Clone this repo
+  * RVM is good for this if you are on a Mac
+  * on a windows just download Ruby and install it
+2. Install Bundler -- Bundler is used by rails apps to manage dependencies.
+  * to install: `sudo gem install bundler`  (gem is a tool that comes with ruby that helps install ruby tools/plugins)
+3. Install Bower -- Bower is a tool for managing web dependencies, like Angular.  To install with npm, use `sudo npm install bower -g`
+  * Bower and Bundler do almost the same thing, but Bundler is ruby specific, so I'm electing to use Bower for the web stuff and Bundler for the ruby stuff.  This way, if we ever replace the backend ruby with a different solution, we can keep our Bower setup.
+
+# Application Setup
+
+2. Clone this repo
+3. Open a terminal in the project directory
+4. `bundle install` to install all the rails/ruby project dependencies, including Rails itself
+1. `rake db:migrate` to set up the db (you will need to run this anytime the db changes)
+6. `rake bower:install` to install the web dependencies, like Angular and Bootstrap
 
 # Running
-Open a terminal in the project directory and type:
-1. `rake db:migrate` to set up the db (you only need to run this the first time,
-or when the db changes)
-2. `rails server` to start the server
+
+From the project directory run `rails server` to start the server
 
 Then open a browser and go to `localhost:3000`
 
