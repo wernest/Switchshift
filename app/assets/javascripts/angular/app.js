@@ -1,8 +1,10 @@
 var shiftsapp = angular.module('shiftsapp', [
     'ngRoute',
-    'shiftsapp.shiftsBrowser',
     'shiftsapp.navbar',
-    'shiftsapp.components.auth'
+    'shiftsapp.shiftsBrowser',
+    'shiftsapp.newShift',
+    'shiftsapp.components.auth',
+    'shiftsapp.components.shiftResource'
 ])
     .run(function($templateCache, $http) {
         //This bit of code here will pre-fetch all our templates
@@ -13,11 +15,11 @@ var shiftsapp = angular.module('shiftsapp', [
 shiftsapp.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
-            when('/shifts', {
+            when('/', {
                 templateUrl: '/assets/angular/shiftbrowse/shift-browse.html',
                 controller: 'ShiftsBrowserCtrl'
             }).
             otherwise({
-                redirectTo: '/shifts'
+                redirectTo: '/'
             });
     }]);

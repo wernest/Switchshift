@@ -1,0 +1,7 @@
+class ShiftExchangeController < ApplicationController
+  before_action :authenticate_user!
+
+  def index
+  end
+
+end
