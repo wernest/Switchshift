@@ -12,7 +12,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="shift in shifts">
+        <tr ng-repeat="shift in shifts" ng-click="editShift(shift)">
             <td>{{shift.id}}</td>
             <td>{{shift.title}}</td>
             <td>{{shift.origin}}</td>
