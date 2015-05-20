@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20150512041500) do
 
-  create_table "shifts", force: true do |t|
+  create_table "shift_exchange", force: true do |t|
     t.string   "title"
     t.integer  "user_id"
     t.date     "start"
