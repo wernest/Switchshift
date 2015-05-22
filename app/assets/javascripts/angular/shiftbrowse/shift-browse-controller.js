@@ -28,7 +28,7 @@ shiftsbrowser.controller('ShiftsBrowserCtrl', ['$scope', '$modal', 'ShiftResourc
         });
 
         modalInstance.result.then(function (editShift) {
-            $scope.shifts
+
         });
     }
 }]);

@@ -5,7 +5,7 @@ editShiftController.controller('EditShiftController', ['$scope', 'ShiftResource'
     $scope.theShift = shiftService.theShift;
 
     $scope.update = function() {
-        var shiftFromServer = shiftResource.save($scope.theShift);
+        var shiftFromServer = shiftResource.update($scope.theShift);
         $modalInstance.close(shiftFromServer);
     };
 
