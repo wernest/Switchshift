@@ -17,7 +17,7 @@ class ShiftsController < ApplicationController
     shift = Shift.find(safe_id_param[:id])
     if shift.user == current_user then
       shift.update(safe_shift_params)
-      render :nothing => true, :status => 200
+      render json: shift, :status => 200
     else
       render :nothing => true, :status => 403
     end
