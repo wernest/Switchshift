@@ -2,11 +2,26 @@ var navbar = angular.module('shiftsapp.navbar', ['ui.bootstrap', 'shiftsapp.comp
 
 navbar.controller('NavbarController', ['$scope', 'Auth', function($scope, auth) {
 
+    var currentUserEmail = $scope.currentUserEmail;
+
     $scope.signOut = function() {
         auth.signOut();
     };
 
+    //This is used to set which nav-bar item is active, but needs to be fixed
+    //to use will's new directive
     $scope.isActive = function (path) {
         return path === $location.path();
     };
-}]);
+
+}])
+    .directive('navBar', function(){
+    return {
+        restrict: 'E',
+        templateUrl: '/assets/angular/navbar/nav-bar.html',
+        controller: 'NavbarController',
+        scope: {
+            currentUserEmail: "@currentUserEmail"
+        }
+    }
+});

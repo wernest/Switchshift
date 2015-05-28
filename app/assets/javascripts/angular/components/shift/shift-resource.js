@@ -1,7 +1,7 @@
-var shiftResource = angular.module('shiftsapp.components.shiftResource', ['ngResource']);
+var shiftResource = angular.module('shiftsapp.components.shiftResource', ['shiftsapp.components.shiftResourceDefaults']);
 
-shiftResource.factory('ShiftResource', ['$resource',
+shiftResource.factory('ShiftResource', ['ShiftResourceDefaults',
     function($resource) {
-        return $resource('/api/shifts');
+        return $resource('/api/shifts/:id', { id: '@id' });
     }
 ]);

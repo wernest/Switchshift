@@ -1,0 +1,26 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Edit a shift</h4>
+    </div>
+    <div class="modal-body">
+        <form>
+            <md-input-container>
+                <label for="title1">Shift Title</label>
+                <input id="title1"  ng-model="theShift.title">
+            </md-input-container>
+            <md-input-container>
+                <label for="origin1">Origin</label>
+                <input id="origin1" ng-model="theShift.origin">
+            </md-input-container>
+            <md-input-container>
+                <label for="destination1">Destination</label>
+                <input id="destination1" ng-model="theShift.destination">
+            </md-input-container>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <md-button class="md-raised" ng-click="cancel()">Close</md-button>
+        <md-button class="md-raised md-primary" ng-click="update()">Update</md-button>
+    </div>
+</div>
