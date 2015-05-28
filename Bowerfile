@@ -1,6 +1,12 @@
+# Remember, to install these use:
+# rake bower:install
+
 asset 'angular'
 asset 'angular-route'
 asset 'angular-resource'
 asset 'angular-bootstrap'
 asset 'angular-material'
 asset 'ng-messages'
+
+# Official Google Material icon set -- Might be overkill to include these here...
+asset 'material-design-icons'
