@@ -1,4 +1,4 @@
-var editShiftController = angular.module('shiftsapp.editShift', ['ngResource']);
+var editShiftController = angular.module('shiftsapp.editShift', ['ngResource', 'ngMessages']);
 
 editShiftController.controller('EditShiftController', ['$scope', 'ShiftResource', '$modalInstance', 'EditShiftService', function($scope, shiftResource, $modalInstance, shiftService) {
 
@@ -14,4 +14,23 @@ editShiftController.controller('EditShiftController', ['$scope', 'ShiftResource'
     $scope.cancel = function () {
         $modalInstance.dismiss('cancel');
     };
-}]);
+}])
+    //Directive for giving us capitalized text
+    .directive('capitalize', function() {
+    return {
+        require: 'ngModel',
+        link: function(scope, element, attrs, modelCtrl) {
+            var capitalize = function(inputValue) {
+                if(inputValue == undefined) inputValue = '';
+                var capitalized = inputValue.toUpperCase();
+                if(capitalized !== inputValue) {
+                    modelCtrl.$setViewValue(capitalized);
+                    modelCtrl.$render();
+                }
+                return capitalized;
+            }
+            modelCtrl.$parsers.push(capitalize);
+            capitalize(scope[attrs.ngModel]);  // capitalize initial value
+        }
+    };
+});
