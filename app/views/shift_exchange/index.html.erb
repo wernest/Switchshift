@@ -10,6 +10,10 @@
       <a class="navbar-brand" href="#">Shift Exchange</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="{ active: isActive('')}"><a href="">Available Shifts</a></li>
+        <li class="{ active: isActive('/myshifts')}"><a href="#/myshifts">My Shifts</a></li>
+      </ul>
       <p class="navbar-text navbar-right">
         Signed in as <a href="#" class="navbar-link"><%= current_user.email %></a>
         <button class="btn btn-primary" ng-click="signOut()">Sign out</button>
