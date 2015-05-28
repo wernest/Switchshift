@@ -1,4 +1,4 @@
-var shiftsbrowser = angular.module('shiftsapp.shiftsBrowser', ['ngResource', 'ui.bootstrap']);
+var shiftsbrowser = angular.module('shiftsapp.shiftsBrowser', ['ngResource', 'ui.bootstrap', 'ngMaterial']);
 
 shiftsbrowser.controller('ShiftsBrowserCtrl', ['$scope', '$modal', 'ShiftResource', 'EditShiftService', function($scope, $modal, shiftResource, editShiftService) {
     $scope.shifts = shiftResource.query();

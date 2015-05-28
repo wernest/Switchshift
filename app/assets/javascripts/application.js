@@ -15,6 +15,9 @@
 //= require angular-resource/angular-resource
 //= require angular-bootstrap/ui-bootstrap.min
 //= require angular-bootstrap/ui-bootstrap-tpls.min
+//= require angular-aria/angular-aria.min
+//= require angular-animate/angular-animate.min
+//= require angular-material/angular-material.min
 //= require_tree .
 
 

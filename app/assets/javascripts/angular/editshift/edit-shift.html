@@ -5,22 +5,22 @@
     </div>
     <div class="modal-body">
         <form>
-            <div class="form-group">
+            <md-input-container>
                 <label for="title1">Shift Title</label>
-                <input class="form-control" id="title1"  ng-model="theShift.title">
-            </div>
-            <div class="form-group">
+                <input id="title1"  ng-model="theShift.title">
+            </md-input-container>
+            <md-input-container>
                 <label for="origin1">Origin</label>
-                <input class="form-control" id="origin1" ng-model="theShift.origin">
-            </div>
-            <div class="form-group">
+                <input id="origin1" ng-model="theShift.origin">
+            </md-input-container>
+            <md-input-container>
                 <label for="destination1">Destination</label>
-                <input class="form-control" id="destination1" ng-model="theShift.destination">
-            </div>
+                <input id="destination1" ng-model="theShift.destination">
+            </md-input-container>
         </form>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-default" ng-click="cancel()">Close</button>
-        <button type="button" class="btn btn-primary" ng-click="update()">Update</button>
+        <md-button class="md-raised" ng-click="cancel()">Close</md-button>
+        <md-button class="md-raised md-primary" ng-click="update()">Update</md-button>
     </div>
 </div>
