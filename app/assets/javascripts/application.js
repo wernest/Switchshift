@@ -18,6 +18,7 @@
 //= require angular-aria/angular-aria.min
 //= require angular-animate/angular-animate.min
 //= require angular-material/angular-material.min
+//= require ng-messages/angular-messages.min
 //= require_tree .
 
 

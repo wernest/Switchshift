@@ -4,18 +4,29 @@
         <h4 class="modal-title" id="myModalLabel">Edit a shift</h4>
     </div>
     <div class="modal-body">
-        <form>
+        <form name="editShiftForm">
             <md-input-container>
-                <label for="title1">Shift Title</label>
-                <input id="title1"  ng-model="theShift.title">
+                <label for="title">Shift Title</label>
+                <input id="title" required ng-model="theShift.title" name="title">
+                <div ng-messages="editShiftForm.title.$error">
+                    <div ng-message="required">A title is required.</div>
+                </div>
             </md-input-container>
             <md-input-container>
-                <label for="origin1">Origin</label>
-                <input id="origin1" ng-model="theShift.origin">
+                <label for="origin">Origin</label>
+                <input id="origin" required ng-model="theShift.origin" name="origin" minlength="3" maxlength="3" capitalize/>
+                <div ng-messages="editShiftForm.origin.$error">
+                    <div ng-message="required">An origin is required.</div>
+                    <div ng-message="minlength">Please enter a 3 letter airport code.</div>
+                </div>
             </md-input-container>
             <md-input-container>
-                <label for="destination1">Destination</label>
-                <input id="destination1" ng-model="theShift.destination">
+                <label for="destination">Destination</label>
+                <input id="destination" required ng-model="theShift.destination" name="destination" minlength="3" capitalize/>
+                <div ng-messages="editShiftForm.destination.$error">
+                    <div ng-message="required">A destination is required.</div>
+                    <div ng-message="minlength">Please enter a 3 letter airport code.</div>
+                </div>
             </md-input-container>
         </form>
     </div>
