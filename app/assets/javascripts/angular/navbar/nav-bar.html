@@ -1,19 +1,19 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Shift Exchange</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <p class="navbar-text navbar-right">
-                Signed in as <a href="#/" class="navbar-link">{{ currentUserEmail }}</a>
-                <button class="btn btn-primary" ng-click="signOut()">Sign out</button>
-            </p>
-        </div><!--/.navbar-collapse -->
+<md-toolbar class="md-whiteframe-z2 md-hue-6">
+    <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" aria-label="Settings">
+            <md-icon md-svg-icon="/assets/material-design-icons/navigation/svg/production/ic_menu_24px.svg"></md-icon>
+        </md-button>
+        <h2>
+            <span>Shift Exchange</span>
+        </h2>
+        <span flex></span>
+
+        <!-- TODO turn this into a menu with 'signout', 'profile' etc (currently no support for menus in ng-material -->
+        <md-button class="md-fab hue-2" aria-label="Profile">
+            <md-tooltip>
+                someday this will be a menu with "sign out"
+            </md-tooltip>
+            <md-icon md-svg-icon="/assets/material-design-icons/social/svg/production/ic_person_24px.svg"></md-icon>
+        </md-button>
     </div>
-</nav>
+</md-toolbar>

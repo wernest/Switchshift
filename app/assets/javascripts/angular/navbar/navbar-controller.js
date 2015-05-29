@@ -14,14 +14,5 @@ navbar.controller('NavbarController', ['$scope', 'Auth', function($scope, auth) 
         return path === $location.path();
     };
 
-}])
-    .directive('navBar', function(){
-    return {
-        restrict: 'E',
-        templateUrl: '/assets/angular/navbar/nav-bar.html',
-        controller: 'NavbarController',
-        scope: {
-            currentUserEmail: "@currentUserEmail"
-        }
-    }
-});
+}]);
+

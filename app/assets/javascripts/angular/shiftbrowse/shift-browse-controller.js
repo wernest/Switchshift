@@ -23,7 +23,7 @@ shiftsbrowser.controller('ShiftsBrowserCtrl', ['$scope', '$modal', 'ShiftResourc
         editShiftService.updateTheShift(shift);
 
             $mdDialog.show({
-            templateUrl: '/assets/angular/editshift/edit-shift.html',
+            templateUrl: '/assets/angular/editshift/editshift.html',
             controller: 'EditShiftController'
         })
             .then(function(editShift){

@@ -25,3 +25,12 @@ shiftsapp.config(['$routeProvider',
                 redirectTo: '/'
             });
     }]);
+shiftsapp.config(function($mdThemingProvider) {
+    $mdThemingProvider.theme('default')
+        .accentPalette('green', {
+            'default': '500',
+            'hue-1': '200',
+            'hue-2': '600',
+            'hue-3': '900'
+        });
+});
