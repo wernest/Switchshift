@@ -1,6 +1,6 @@
 var shiftsbrowser = angular.module('shiftsapp.shiftsBrowser', ['ngResource', 'ui.bootstrap', 'ngMaterial']);
 
-shiftsbrowser.controller('ShiftsBrowserCtrl', ['$scope', '$modal', 'ShiftResource', 'EditShiftService', function($scope, $modal, shiftResource, editShiftService) {
+shiftsbrowser.controller('ShiftsBrowserCtrl', ['$scope', '$modal', 'ShiftResource', 'EditShiftService', '$mdDialog', function($scope, $modal, shiftResource, editShiftService, $mdDialog) {
     $scope.shifts = shiftResource.query();
 
     /**
@@ -22,13 +22,13 @@ shiftsbrowser.controller('ShiftsBrowserCtrl', ['$scope', '$modal', 'ShiftResourc
 
         editShiftService.updateTheShift(shift);
 
-        var modalInstance = $modal.open({
+            $mdDialog.show({
             templateUrl: '/assets/angular/editshift/edit-shift.html',
             controller: 'EditShiftController'
-        });
+        })
+            .then(function(editShift){
 
-        modalInstance.result.then(function (editShift) {
+            });
 
-        });
     }
 }]);

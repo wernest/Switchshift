@@ -1,6 +1,6 @@
 var editShiftController = angular.module('shiftsapp.editShift', ['ngResource', 'ngMessages']);
 
-editShiftController.controller('EditShiftController', ['$scope', 'ShiftResource', '$modalInstance', 'EditShiftService', function($scope, shiftResource, $modalInstance, shiftService) {
+editShiftController.controller('EditShiftController', ['$scope', 'ShiftResource', '$mdDialog', 'EditShiftService', function($scope, shiftResource, $mdDialog, shiftService) {
 
     $scope.theShift = {};
     angular.extend($scope.theShift, shiftService.theShift);
@@ -8,11 +8,11 @@ editShiftController.controller('EditShiftController', ['$scope', 'ShiftResource'
     $scope.update = function() {
         angular.extend(shiftService.theShift, $scope.theShift);
         var shiftFromServer = shiftResource.update($scope.theShift);
-        $modalInstance.close(shiftFromServer);
+        $mdDialog.hide(shiftFromServer);
     };
 
     $scope.cancel = function () {
-        $modalInstance.dismiss('cancel');
+        $mdDialog.hide();
     };
 }])
     //Directive for giving us capitalized text
