@@ -24,7 +24,7 @@
                 </md-input-container>
                 <md-input-container>
                     <label for="destination">Destination</label>
-                    <input id="destination" required ng-model="theShift.destination" name="destination" minlength="3" capitalize/>
+                    <input id="destination" required ng-model="theShift.destination" name="destination" minlength="3"  maxlength="3" capitalize/>
                     <div ng-messages="editShiftForm.destination.$error">
                         <div ng-message="required">A destination is required.</div>
                         <div ng-message="minlength">Please enter a 3 letter airport code.</div>

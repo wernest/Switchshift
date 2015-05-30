@@ -1,26 +1,40 @@
-<div class="modal-content">
-    <div class="modal-header">
-        <button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">Post a new Shift</h4>
+<md-dialog aria-label="New Shift" class="newShiftDialog">
+    <md-subheader>
+        <md-icon md-svg-icon="/assets/material-design-icons/navigation/svg/production/ic_close_24px.svg" ng-click="cancel()" class="close"></md-icon>
+        <h4 class="modal-title" id="myModalLabel">Add New Shift</h4>
+    </md-subheader>
+    <md-divider></md-divider>
+    <md-content class="sticky-container">
+        <div>
+            <form name="newShiftForm">
+                <md-input-container>
+                    <label for="title">Shift Title</label>
+                    <input id="title" required ng-model="theShift.title" ng-model-options="{debounce: 250}" name="title">
+                    <div ng-messages="newShiftForm.title.$error" ng-if="newShiftForm.title.$dirty">
+                        <div ng-message="required">A title is required.</div>
+                    </div>
+                </md-input-container>
+                <md-input-container>
+                    <label for="origin">Origin</label>
+                    <input id="origin" required ng-model="theShift.origin" name="origin" minlength="3" maxlength="3" capitalize/>
+                    <div ng-messages="newShiftForm.origin.$error" ng-if="newShiftForm.origin.$dirty">
+                        <div ng-message="required">An origin is required.</div>
+                        <div ng-message="minlength">Please enter a 3 letter airport code.</div>
+                    </div>
+                </md-input-container>
+                <md-input-container>
+                    <label for="destination">Destination</label>
+                    <input id="destination" required ng-model="theShift.destination" name="destination" minlength="3" maxlength="3" capitalize/>
+                    <div ng-messages="newShiftForm.destination.$error" ng-if="newShiftForm.destination.$dirty">
+                        <div ng-message="required">A destination is required.</div>
+                        <div ng-message="minlength">Please enter a 3 letter airport code.</div>
+                    </div>
+                </md-input-container>
+            </form>
+        </div>
+    </md-content>
+    <div class="md-actions" layout="row">
+        <md-button class="md-raised" ng-click="cancel()">Close</md-button>
+        <md-button class="md-raised md-primary" ng-click="save()">Add</md-button>
     </div>
-    <div class="modal-body">
-        <form>
-            <div class="form-group">
-                <label for="title1">Shift Title</label>
-                <input class="form-control" id="title1" placeholder="ex: Megan's Shift" ng-model="theShift.title">
-            </div>
-            <div class="form-group">
-                <label for="origin1">Origin</label>
-                <input class="form-control" id="origin1" placeholder="ex: JFK" ng-model="theShift.origin">
-            </div>
-            <div class="form-group">
-                <label for="destination1">Destination</label>
-                <input class="form-control" id="destination1" placeholder="ex: SAN" ng-model="theShift.destination">
-            </div>
-        </form>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-default" ng-click="cancel()">Close</button>
-        <button type="button" class="btn btn-primary" ng-click="save()">Save</button>
-    </div>
-</div>
+</md-dialog>

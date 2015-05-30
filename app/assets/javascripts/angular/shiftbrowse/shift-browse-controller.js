@@ -1,6 +1,6 @@
 var shiftsbrowser = angular.module('shiftsapp.shiftsBrowser', ['ngResource', 'ui.bootstrap', 'ngMaterial']);
 
-shiftsbrowser.controller('ShiftsBrowserCtrl', ['$scope', '$modal', 'ShiftResource', 'EditShiftService', '$mdDialog', function($scope, $modal, shiftResource, editShiftService, $mdDialog) {
+shiftsbrowser.controller('ShiftsBrowserCtrl', ['$scope', 'ShiftResource', 'EditShiftService', '$mdDialog', function($scope, shiftResource, editShiftService, $mdDialog) {
     $scope.shifts = shiftResource.query();
 
     /**
@@ -8,13 +8,12 @@ shiftsbrowser.controller('ShiftsBrowserCtrl', ['$scope', '$modal', 'ShiftResourc
      * bring up the new Shift form
      */
     $scope.newShift = function() {
-        var modalInstance = $modal.open({
+        $mdDialog.show({
             templateUrl: '/assets/angular/newshift/new-shift.html',
             controller: 'NewShiftController'
-        });
-
-        modalInstance.result.then(function (newShift) {
-            $scope.shifts.push(newShift);
+        })
+            .then(function (newShift) {
+                $scope.shifts.push(newShift);
         });
     };
 
@@ -25,10 +24,7 @@ shiftsbrowser.controller('ShiftsBrowserCtrl', ['$scope', '$modal', 'ShiftResourc
             $mdDialog.show({
             templateUrl: '/assets/angular/editshift/editshift.html',
             controller: 'EditShiftController'
-        })
-            .then(function(editShift){
-
-            });
+        });
 
     }
 }]);

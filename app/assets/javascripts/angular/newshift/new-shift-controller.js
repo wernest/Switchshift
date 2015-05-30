@@ -1,14 +1,14 @@
 var newShiftController = angular.module('shiftsapp.newShift', ['ngResource']);
 
-newShiftController.controller('NewShiftController', ['$scope', 'ShiftResource', '$modalInstance', function($scope, shiftResource, $modalInstance) {
+newShiftController.controller('NewShiftController', ['$scope', 'ShiftResource', '$mdDialog', function($scope, shiftResource, $mdDialog) {
     $scope.theShift = {};
 
     $scope.save = function() {
         var shiftFromServer = shiftResource.save($scope.theShift);
-        $modalInstance.close(shiftFromServer);
-    }
+        $mdDialog.close(shiftFromServer);
+    };
 
     $scope.cancel = function () {
-        $modalInstance.dismiss('cancel');
+        $mdDialog.cancel();
     };
 }]);

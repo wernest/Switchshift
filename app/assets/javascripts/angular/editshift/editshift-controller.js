@@ -12,6 +12,6 @@ editShiftController.controller('EditShiftController', ['$scope', 'ShiftResource'
     };
 
     $scope.cancel = function () {
-        $mdDialog.hide();
+        $mdDialog.cancel();
     };
 }]);
