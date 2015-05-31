@@ -1,0 +1,27 @@
+<md-dialog>
+    <md-subheader>
+        <md-icon md-svg-icon="/assets/material-design-icons/navigation/svg/production/ic_close_24px.svg" ng-click="cancel()" class="close"></md-icon>
+        <h2>Sign In</h2>
+    </md-subheader>
+    <md-divider></md-divider>
+    <md-dialog-content>
+        <form ng-controller="SignInCtrl as user" ng-submit="user.signIn()" novalidate>
+            <div class="form-group">
+                <md-input-container>
+                    <label for="inputEmail">Email Address</label>
+                    <input type="email" id="inputEmail" ng-model="user.credentials.email" validate>
+                </md-input-container>
+            </div>
+            <div class="form-group">
+                <md-input-container>
+                    <label for="inputPassword">Password</label>
+                    <input type="password" id="inputPassword" ng-model="user.credentials.password" validate>
+                </md-input-container>
+            </div>
+            <div layout="row">
+            <md-button class="md-raised" ng-click="cancel()">Cancel</md-button>
+            <md-button type="submit" class="md-primary md-raised">Sign In</md-button>
+            </div>
+        </form>
+    </md-dialog-content>
+</md-dialog>

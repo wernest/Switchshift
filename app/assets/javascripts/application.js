@@ -19,6 +19,7 @@
 //= require angular-animate/angular-animate.min
 //= require angular-material/angular-material.min
 //= require ng-messages/angular-messages.min
+//= require angular-devise
 //= require_tree .
 
 

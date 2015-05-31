@@ -8,5 +8,8 @@ asset 'angular-bootstrap'
 asset 'angular-material'
 asset 'ng-messages'
 
+# Helper service for angular to deal with Devise
+asset 'angular-devise'
+
 # Official Google Material icon set -- Might be overkill to include these here...
 asset 'material-design-icons'
