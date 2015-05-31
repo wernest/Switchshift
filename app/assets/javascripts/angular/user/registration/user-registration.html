@@ -5,23 +5,23 @@
     </md-subheader>
     <md-divider></md-divider>
     <md-dialog-content>
-        <form ng-controller="RegisterCtrl as user" ng-submit="user.register()" novalidate>
+        <form name="registerForm" ng-controller="RegisterCtrl as user" ng-submit="registerForm.$valid && user.register()" novalidate>
             <div class="form-group">
                 <md-input-container>
                     <label for="inputEmail">Email Address</label>
-                    <input type="email" id="inputEmail" ng-model="user.credentials.email" validate>
+                    <input type="email" id="inputEmail" ng-model="user.credentials.email" validate required>
                 </md-input-container>
             </div>
             <div class="form-group">
                 <md-input-container>
                     <label for="inputPassword">Password</label>
-                    <input type="password" id="inputPassword" ng-model="user.credentials.password" validate minlength="8" ng-required >
+                    <input type="password" id="inputPassword" ng-model="user.credentials.password" validate ng-minlength="8" required >
                 </md-input-container>
             </div>
             <div class="form-group">
                 <md-input-container>
                     <label for="confirmPassword">Confirm Password</label>
-                    <input type="password" id="confirmPassword" ng-model="user.credentials.password_confirmation" validate minlength="8" ng-required password-match="user.credentials.password">
+                    <input type="password" id="confirmPassword" ng-model="user.credentials.password_confirmation" validate ng-minlength="8" required password-match="user.credentials.password">
                 </md-input-container>
             </div>
             <div layout="row">
