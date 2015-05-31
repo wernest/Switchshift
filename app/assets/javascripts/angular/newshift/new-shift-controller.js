@@ -5,7 +5,7 @@ newShiftController.controller('NewShiftController', ['$scope', 'ShiftResource', 
 
     $scope.save = function() {
         var shiftFromServer = shiftResource.save($scope.theShift);
-        $mdDialog.close(shiftFromServer);
+        $mdDialog.hide(shiftFromServer);
     };
 
     $scope.cancel = function () {
