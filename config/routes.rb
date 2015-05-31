@@ -8,7 +8,11 @@ Shifts::Application.routes.draw do
   get 'welcome/index'
   get 'shift_exchange' => 'shift_exchange#index'
 
-  root 'welcome#index'
+  authenticated :user do
+    root :to => redirect("/shift_exchange"), :as => "authenticated_root"
+  end
+
+  root :to => 'welcome#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
