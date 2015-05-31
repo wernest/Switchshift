@@ -9,7 +9,8 @@ var shiftsapp = angular.module('shiftsapp', [
     'shiftsapp.editShiftService',
     'shiftsapp.welcome',
     'Devise',
-    'public.ctrl.signIn'
+    'public.ctrl.signIn',
+    'public.ctrl.register'
 ])
     .run(function($templateCache, $http) {
         //This bit of code here will pre-fetch all our templates
