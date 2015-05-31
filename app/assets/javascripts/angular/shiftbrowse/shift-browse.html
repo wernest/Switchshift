@@ -1,22 +1,32 @@
-<md-button class="md-raised md-accent hue-2 md-button" ng-click="newShift()">
+<md-button class="md-raised md-accent md-hue-2 md-button" ng-click="newShift()">
     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Shift
 </md-button>
 
-<table class="table table-hover" style="margin-top: 60px;">
-    <thead>
+<md-content style="width: 65%; min-width: 400px; margin-left: auto; margin-right: auto;" class="md-whiteframe-z2">
+    <md-toolbar class="md-accent md-hue-1">
+        <div class="md-toolbar-tools">
+            <h2 class="md-flex">Available Shifts</h2>
+        </div>
+    </md-toolbar>
+<md-divider></md-divider>
+<div class="table-responsive-vertical shadow-z-1">
+    <table class="table table-hover">
+        <thead>
         <tr>
             <th>#</th>
             <th>Title</th>
             <th>Origin</th>
             <th>Destination</th>
         </tr>
-    </thead>
-    <tbody>
+        </thead>
+        <tbody>
         <tr ng-repeat="shift in shifts" ng-click="editShift(shift)">
-            <td>{{shift.id}}</td>
-            <td>{{shift.title}}</td>
-            <td>{{shift.origin}}</td>
-            <td>{{shift.destination}}</td>
+            <td data-title="#">{{shift.id}}</td>
+            <td data-title="Title">{{shift.title}}</td>
+            <td data-title="Origin">{{shift.origin}}</td>
+            <td data-title="Destination">{{shift.destination}}</td>
         </tr>
-    </tbody>
-</table>
+        </tbody>
+    </table>
+</div>
+</md-content>
