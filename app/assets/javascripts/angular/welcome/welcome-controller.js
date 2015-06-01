@@ -1,9 +1,14 @@
 /**
  * Created by WILL on 5/31/2015.
  */
-var welcome = angular.module('shiftsapp.welcome', ['ngMaterial', 'Devise']);
+var welcome = angular.module('shiftsapp.welcome', [
+    'Devise',
+    'ngMaterial',
+    'public.ctrl.signIn',
+    'public.ctrl.register'
+]);
 
-welcome.controller('WelcomeController', ['$scope', '$mdDialog', '$window', 'Auth', function($scope, $mdDialog){
+welcome.controller('WelcomeController', ['$scope', '$mdDialog', '$window', function($scope, $mdDialog){
 
     $scope.signIn = function(){
         $mdDialog.show({

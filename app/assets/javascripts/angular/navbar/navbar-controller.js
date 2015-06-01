@@ -1,4 +1,6 @@
-var navbar = angular.module('shiftsapp.navbar', ['ui.bootstrap']);
+var navbar = angular.module('shiftsapp.navbar', [
+    'ui.bootstrap',
+    'shiftsapp.components.auth']);
 
 navbar.controller('NavbarController', ['$scope', 'Auth', '$window', '$http', function($scope, auth, $window, $http) {
 

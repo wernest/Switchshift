@@ -1,4 +1,6 @@
-angular.module('public.ctrl.register', ['Devise'])
+angular.module('public.ctrl.register', [
+    'Devise'])
+
     .config(function(AuthProvider) {
         // Settings
         AuthProvider.registerPath('/users.json');

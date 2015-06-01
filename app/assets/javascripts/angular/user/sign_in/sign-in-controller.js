@@ -1,7 +1,9 @@
 /**
  * Created by WILL on 5/31/2015.
  */
-angular.module('public.ctrl.signIn', [])
+angular.module('public.ctrl.signIn', [
+    'Devise'
+])
     .controller('SignInCtrl', ['Auth', '$window', '$scope', '$mdDialog',
         function(Auth, $window,$scope, $mdDialog) {
 
