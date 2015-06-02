@@ -14,6 +14,7 @@ class ShiftsController < ApplicationController
     render json: shift
   end
 
+
   def update
     shift = Shift.find(safe_id_param[:id])
     if shift.user == current_user then

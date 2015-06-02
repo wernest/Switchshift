@@ -11,7 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150512041500) do
+ActiveRecord::Schema.define(version: 20150602011729) do
+
+  create_table "groups", force: true do |t|
+    t.string  "name"
+    t.text    "description"
+    t.string  "organization"
+    t.integer "created_by"
+  end
+
+  create_table "groups_users", id: false, force: true do |t|
+    t.integer "group_id", null: false
+    t.integer "user_id",  null: false
+  end
+
+  create_table "profiles", force: true do |t|
+    t.integer "user_id"
+    t.string  "first_name"
+    t.string  "last_name"
+    t.string  "phone"
+    t.string  "region"
+    t.string  "airline"
+    t.string  "home_origin"
+  end
+
+  add_index "profiles", ["user_id"], name: "index_profile_on_user_id", unique: true
 
   create_table "shifts", force: true do |t|
     t.string   "title"
@@ -23,8 +47,11 @@ ActiveRecord::Schema.define(version: 20150512041500) do
     t.decimal  "price"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "origin_flight_number"
+    t.integer  "group_id"
   end
 
+  add_index "shifts", ["group_id"], name: "index_shifts_on_groups"
   add_index "shifts", ["user_id"], name: "index_shifts_on_user_id"
 
   create_table "users", force: true do |t|

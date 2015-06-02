@@ -5,6 +5,14 @@ Shifts::Application.routes.draw do
     resources :shifts
   end
 
+  namespace :api do
+    resources :groups
+  end
+
+  namespace :api do
+    resources :profile
+  end
+
   get 'welcome/index'
   get 'shift_exchange' => 'shift_exchange#index'
 
