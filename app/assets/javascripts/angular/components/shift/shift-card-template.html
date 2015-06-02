@@ -1,0 +1,17 @@
+<md-list-item class="md-2-line">
+    <div class="md-list-item-text">
+        <h3>{{shift.title}}</h3>
+        <h4>
+            <md-icon md-svg-icon="/assets/material-design-icons/maps/svg/production/ic_flight_24px.svg"></md-icon>
+            {{shift.origin}}
+            <md-icon md-svg-icon="/assets/material-design-icons/navigation/svg/production/ic_chevron_right_18px.svg"></md-icon>
+            {{shift.destination}}
+        </h4>
+        <!--<span class="md-whiteframe-z1 md-secondary md-warn">-->
+            <!--{{shift.price}}-->
+        <!--</span>-->
+        <md-button class="md-secondary md-raised md-primary" ng-show="shift.price">
+            {{shift.price}}
+        </md-button>
+    </div>
+</md-list-item>

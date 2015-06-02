@@ -28,5 +28,9 @@
         </tr>
         </tbody>
     </table>
+    <div ng-repeat="shift in shifts" ng-click="editShift(shift)">
+        <shift-card info="shift"></shift-card>
+    </div>
+
 </div>
 </md-content>

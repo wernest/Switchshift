@@ -31,7 +31,7 @@ class ShiftsController < ApplicationController
 
   private
   def safe_shift_params
-    params.permit(:title, :origin, :destination)
+    params.permit(:title, :origin, :destination, :price)
   end
 
   def safe_id_param

@@ -7,7 +7,9 @@ var shiftsbrowser = angular.module('shiftsapp.shiftsBrowser', [
     'shiftsapp.editShift',
     'shiftsapp.newShift',
     'shiftsapp.editShiftService',
-    'shiftsapp.components.shiftResource'
+    'shiftsapp.components.shiftResource',
+    'shiftsapp.components.shiftCardDirective'
+
 ]);
 
 shiftsbrowser.controller('ShiftsBrowserCtrl', ['$scope', 'ShiftResource', 'EditShiftService', '$mdDialog', function($scope, shiftResource, editShiftService, $mdDialog) {
