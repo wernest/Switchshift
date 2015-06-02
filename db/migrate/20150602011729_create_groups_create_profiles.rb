@@ -26,7 +26,6 @@ class CreateGroupsCreateProfiles < ActiveRecord::Migration
     add_column :shifts, :origin_flight_number, :integer
     add_column :shifts, :group_id, :integer
     add_index :profiles, ["user_id"], name: "index_profile_on_user_id", unique: true
-    add_index :shifts, ["group_id"], name: "index_shifts_on_groups"
-    add_index :groups, ["user_id"], name: "index_shifts_on_groups"
+    add_index :shifts, :group_id
   end
 end
