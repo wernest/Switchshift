@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20150602011729) do
     t.integer  "group_id"
   end
 
-  add_index "shifts", ["group_id"], name: "index_shifts_on_groups"
+  add_index "shifts", ["group_id"], name: "index_shifts_on_group_id"
   add_index "shifts", ["user_id"], name: "index_shifts_on_user_id"
 
   create_table "users", force: true do |t|
