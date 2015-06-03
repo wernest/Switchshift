@@ -16,6 +16,10 @@
 @import "bootstrap";
 @import "../bower_components/angular-material/angular-material.min";
 
+body {
+  background-color: #f0f0f0;
+}
+
 .shift-logo {
   background: url('/assets/logo_large.png');
   background-size: cover;
@@ -24,4 +28,20 @@
 
 md-dialog{
   min-width: 500px;
+}
+
+.jcrw-row:hover {
+  background-color: #eeeeee;
+}
+
+.jcrw-shifts-content {
+  padding: 16px;
+}
+
+.jcrw-shifts-content .md-whiteframe-z1 {
+  background-color: white;
+}
+
+.jcrw-header {
+  padding: 0px 16px;
 }
