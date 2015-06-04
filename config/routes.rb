@@ -2,7 +2,11 @@ Shifts::Application.routes.draw do
   devise_for :users, :controllers => {sessions: 'sessions', registrations: 'registrations'}
 
   namespace :api do
-    resources :shifts
+    resources :shifts do
+      collection do
+        get 'me'
+      end
+    end
   end
 
   namespace :api do

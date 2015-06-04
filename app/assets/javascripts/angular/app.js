@@ -1,6 +1,7 @@
 var shiftsapp = angular.module('shiftsapp', [
     'ngRoute',
     'shiftsapp.shiftsBrowser',
+    'shiftsapp.myShifts',
     'shiftsapp.components.auth',
     'shiftsapp.components.shiftResource',
     'Devise',
@@ -18,6 +19,10 @@ shiftsapp.config(['$routeProvider',
             when('/', {
                 templateUrl: '/assets/angular/shiftbrowse/shift-browse.html',
                 controller: 'ShiftsBrowserCtrl'
+            }).
+            when('/me', {
+                templateUrl: '/assets/angular/myshifts/my-shifts-template.html',
+                controller: 'MyShiftsController'
             }).
             otherwise({
                 redirectTo: '/'

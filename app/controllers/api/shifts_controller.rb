@@ -14,6 +14,11 @@ class ShiftsController < ApplicationController
     render json: shift
   end
 
+  # Gets all the Shifts that belong to "me" aka the current user
+  def me
+    render json: Shift.where(:user_id => current_user)
+  end
+
 
   def update
     shift = Shift.find(safe_id_param[:id])
