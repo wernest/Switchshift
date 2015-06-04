@@ -35,7 +35,7 @@ md-dialog{
 }
 
 .jcrw-shifts-content {
-  padding: 16px;
+  padding: 0px 72px;
 }
 
 .jcrw-shifts-content .md-whiteframe-z1 {
@@ -44,4 +44,12 @@ md-dialog{
 
 .jcrw-header {
   padding: 0px 16px;
+}
+
+.jcrw-hanging-navbar {
+  height: 0px;
+}
+
+.jcrw-hanging-navbar .md-icon-button {
+  margin-top: 20px;
 }
