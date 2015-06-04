@@ -9,7 +9,6 @@ navbar.controller('NavbarController', ['$scope', 'Auth', '$window', '$http', '$l
     //This is used to set which nav-bar item is active, but needs to be fixed
     //to use will's new directive
     $scope.classIfActive = function (path, cssClass) {
-        console.log($location.path());
         return path === $location.path() ? cssClass : '';
     };
 
