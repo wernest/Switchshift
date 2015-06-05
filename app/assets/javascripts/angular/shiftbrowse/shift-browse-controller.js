@@ -30,13 +30,15 @@ shiftsbrowser.controller('ShiftsBrowserCtrl', ['$scope', 'ShiftResource', 'EditS
     };
 
     $scope.editShift = function(shift){
-
         editShiftService.updateTheShift(shift);
 
-            $mdDialog.show({
+        $mdDialog.show({
             templateUrl: '/assets/angular/editshift/editshift.html',
             controller: 'EditShiftController'
-        });
+        })
+            .then(function(response){
+               //If returned a delete response, reload the shift from the server.
+            });
 
     }
 }]);

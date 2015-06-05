@@ -1,8 +1,11 @@
 var navbar = angular.module('shiftsapp.navbar', [
     'ui.bootstrap',
-    'shiftsapp.components.auth']);
+    'shiftsapp.components.auth',
+    'shiftsapp.profile',
+    'shiftsapp.components.shiftResource'
+]);
 
-navbar.controller('NavbarController', ['$scope', 'Auth', '$window', '$http', '$location', function($scope, auth, $window, $http, $location) {
+navbar.controller('NavbarController', ['$scope', 'Auth', '$window', '$http', '$location', '$mdDialog', function($scope, auth, $window, $http, $location, $mdDialog) {
 
     var currentUserEmail = $scope.currentUserEmail;
 
@@ -17,6 +20,13 @@ navbar.controller('NavbarController', ['$scope', 'Auth', '$window', '$http', '$l
             .then(function(){
                 $window.location.href="/";
             });
+    };
+
+    $scope.launchProfile = function(){
+        $mdDialog.show({
+            templateUrl: '/assets/angular/user/profile/profile.html',
+            controller: 'ProfileCtrl'
+        });
     }
 
 }]);

@@ -31,7 +31,13 @@ class ShiftsController < ApplicationController
   end
 
   def destroy
-  end
+    shift = Shift.find(safe_id_param[:id])
+    if shift.user == current_user then
+      shift.delete
+      render :nothing => true, :status => 200
+    else
+      render :nothing => true, :status => 403
+    end  end
 
 
   private

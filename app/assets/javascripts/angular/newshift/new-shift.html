@@ -6,18 +6,18 @@
     <md-divider></md-divider>
     <md-dialog-content class="sticky-container">
         <div>
-            <form name="newShiftForm">
+            <form name="editProfileForm">
                 <md-input-container>
                     <label for="title">Shift Title</label>
                     <input id="title" required ng-model="theShift.title" ng-model-options="{debounce: 250}" name="title">
-                    <div ng-messages="newShiftForm.title.$error" ng-if="newShiftForm.title.$dirty">
+                    <div ng-messages="editProfileForm.title.$error" ng-if="editProfileForm.title.$dirty">
                         <div ng-message="required">A title is required.</div>
                     </div>
                 </md-input-container>
                 <md-input-container>
                     <label for="origin">Origin</label>
                     <input id="origin" required ng-model="theShift.origin" name="origin" minlength="3" maxlength="3" capitalize/>
-                    <div ng-messages="newShiftForm.origin.$error" ng-if="newShiftForm.origin.$dirty">
+                    <div ng-messages="editProfileForm.origin.$error" ng-if="editProfileForm.origin.$dirty">
                         <div ng-message="required">An origin is required.</div>
                         <div ng-message="minlength">Please enter a 3 letter airport code.</div>
                     </div>
@@ -25,7 +25,7 @@
                 <md-input-container>
                     <label for="destination">Destination</label>
                     <input id="destination" required ng-model="theShift.destination" name="destination" minlength="3" maxlength="3" capitalize/>
-                    <div ng-messages="newShiftForm.destination.$error" ng-if="newShiftForm.destination.$dirty">
+                    <div ng-messages="editProfileForm.destination.$error" ng-if="editProfileForm.destination.$dirty">
                         <div ng-message="required">A destination is required.</div>
                         <div ng-message="minlength">Please enter a 3 letter airport code.</div>
                     </div>

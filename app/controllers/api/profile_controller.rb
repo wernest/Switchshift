@@ -6,9 +6,10 @@ module Api
       profile = Profile.where(user_id: current_user.id )
       if profile.empty?
         profile = Profile.new(:user_id => current_user.id)
+        profile.save!
         render json: profile
       else
-        render json: profile
+        render json: profile[0]
       end
     end
 
@@ -17,8 +18,8 @@ module Api
     end
 
     def update
-      profile = Profile.find(safe_id_param)
-      if profile.user_id == current_user.id then
+      profile = Profile.find(safe_id_param[:user_id])
+      if profile.user == current_user then
         profile.update(safe_profile_params)
         render json: profile
       else
@@ -36,7 +37,7 @@ module Api
     end
 
     def safe_id_param
-      params.permit(:id)
+      params.permit(:user_id)
     end
   end
 end
