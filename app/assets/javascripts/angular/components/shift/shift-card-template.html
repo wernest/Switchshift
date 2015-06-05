@@ -3,8 +3,10 @@
         <h3>{{shift.title}}</h3>
         <h4>
             <md-icon md-svg-icon="/assets/material-design-icons/maps/svg/production/ic_flight_24px.svg"></md-icon>
-            {{shift.origin}}
-            <md-icon md-svg-icon="/assets/material-design-icons/navigation/svg/production/ic_chevron_right_18px.svg"></md-icon>
+            <span ng-repeat="airport in shift.airports">
+                <md-icon md-svg-icon="/assets/material-design-icons/navigation/svg/production/ic_chevron_right_18px.svg"></md-icon>
+                {{airport.iata}}
+            </span>
             {{shift.destination}}
         </h4>
         <!--<span class="md-whiteframe-z1 md-secondary md-warn">-->

@@ -3,7 +3,7 @@ class ShiftsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    render json: Shift.all
+    render json: Shift.all.to_json(:include => :airports)
   end
 
   def create
@@ -16,7 +16,7 @@ class ShiftsController < ApplicationController
 
   # Gets all the Shifts that belong to "me" aka the current user
   def me
-    render json: Shift.where(:user_id => current_user)
+    render json: Shift.where(:user_id => current_user).to_json(:include => :airports)
   end
 
 
