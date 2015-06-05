@@ -37,7 +37,9 @@ shiftsbrowser.controller('ShiftsBrowserCtrl', ['$scope', 'ShiftResource', 'EditS
             controller: 'EditShiftController'
         })
             .then(function(response){
-               //If returned a delete response, reload the shift from the server.
+                if(response === "delete"){
+                    $scope.shifts = shiftResource.query();
+                }
             });
 
     }
