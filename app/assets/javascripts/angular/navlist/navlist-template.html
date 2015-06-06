@@ -16,7 +16,7 @@
         </md-toolbar>
 
         <div layout="vertical" flex>
-            <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open ="$mdMedia('min-width: 800px')">
+            <md-sidenav class="md-sidenav-left md-whiteframe-z2 jcrw-navlist" md-component-id="left" md-is-locked-open ="$mdMedia('min-width: 800px')">
                 <md-list>
                     <md-list-item ng-repeat="action in navlist.actions" ng-click="navlist.selectAction(action.name)">
                         {{ action.name }}

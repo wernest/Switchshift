@@ -58,17 +58,11 @@ md-dialog{
   margin-top: 20px;
 }
 
-.animate-show.ng-hide-add.ng-hide-add-active,
-.animate-show.ng-hide-remove.ng-hide-remove-active {
-  -webkit-transition: all cubic-bezier(0.250, 0.250, 0.750, 0.750) 0.5s;
-  -moz-transition: all cubic-bezier(0.250, 0.250, 0.750, 0.750) 0.5s;
-  -ms-transition: all cubic-bezier(0.250, 0.250, 0.750, 0.750) 0.5s;
-  -o-transition: all cubic-bezier(0.250, 0.250, 0.750, 0.750) 0.5s;
-  transition: all cubic-bezier(0.250, 0.250, 0.750, 0.750) 0.5s;
-}
-
-.animate-show.ng-hide{
-  line-height: 0;
-  opacity: 0;
-  padding: 0 10px;
+/* Somehow, the hover state gives us the color of the
+ * background transition when clicking an item
+ */
+.jcrw-navlist md-list-item:hover{
+  background-color: rgba(193, 193, 193, 0.96);
+  color: rgba(44, 65, 164, 0.96);
+  transition: 0.3s;
 }
