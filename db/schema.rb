@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150605053528) do
+ActiveRecord::Schema.define(version: 20150606204702) do
 
   create_table "airports", force: true do |t|
     t.string   "iata"
@@ -21,6 +21,9 @@ ActiveRecord::Schema.define(version: 20150605053528) do
     t.string   "timezone"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "lat",             precision: 10, scale: 6
+    t.decimal  "long",            precision: 10, scale: 6
+    t.string   "country"
   end
 
   create_table "groups", force: true do |t|
