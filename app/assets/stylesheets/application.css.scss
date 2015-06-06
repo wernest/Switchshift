@@ -15,10 +15,14 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "../bower_components/angular-material/angular-material.min";
+@import url(http://fonts.googleapis.com/css?family=Roboto:500);
 
 body {
   background-color: #f0f0f0;
+  font-family: 'Roboto', sans-serif;
 }
+
+.ng-scope { height: 100%; }
 
 .shift-logo {
   background: url('/assets/logo_large.png');
@@ -52,4 +56,19 @@ md-dialog{
 
 .jcrw-hanging-navbar .md-icon-button {
   margin-top: 20px;
+}
+
+.animate-show.ng-hide-add.ng-hide-add-active,
+.animate-show.ng-hide-remove.ng-hide-remove-active {
+  -webkit-transition: all cubic-bezier(0.250, 0.250, 0.750, 0.750) 0.5s;
+  -moz-transition: all cubic-bezier(0.250, 0.250, 0.750, 0.750) 0.5s;
+  -ms-transition: all cubic-bezier(0.250, 0.250, 0.750, 0.750) 0.5s;
+  -o-transition: all cubic-bezier(0.250, 0.250, 0.750, 0.750) 0.5s;
+  transition: all cubic-bezier(0.250, 0.250, 0.750, 0.750) 0.5s;
+}
+
+.animate-show.ng-hide{
+  line-height: 0;
+  opacity: 0;
+  padding: 0 10px;
 }
