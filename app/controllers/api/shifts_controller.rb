@@ -40,7 +40,8 @@ class ShiftsController < ApplicationController
       render :nothing => true, :status => 200
     else
       render :nothing => true, :status => 403
-    end  end
+    end
+  end
 
 
   private
