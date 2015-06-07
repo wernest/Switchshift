@@ -3,7 +3,12 @@ class ShiftsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    render json: Shift.all.to_json(:include => :airports)
+    render json: Shift.all.to_json(:include => {
+                                       :airports => {
+                                           :only => [:iata, :icao]},
+                                       :profile => {
+                                           :only => [:first_name]}},
+                                   :except => [:user_id])
   end
 
   def create
@@ -15,8 +20,17 @@ class ShiftsController < ApplicationController
   end
 
   # Gets all the Shifts that belong to "me" aka the current user
+  #
+  # -- Doesn't return userID to client. Also adds the first name of the person who
+  #    created the shift
   def me
-    render json: Shift.where(:user_id => current_user).to_json(:include => :airports)
+    render json: Shift.where(:user_id => current_user).to_json(
+               :include => {
+                   :airports => {
+                       :only => [:iata, :icao]},
+                   :profile => {
+                       :only => [:first_name]}},
+               :except => [:user_id])
   end
 
 

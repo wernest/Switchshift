@@ -1,6 +1,9 @@
 <md-list-item class="md-2-line jcrw-row" ng-click="editShift(shift)">
     <div class="md-list-item-text">
+        <div layout="row">
         <h3>{{shift.title}}</h3>
+            <div flex ng-if="shift.profile.first_name"><span class="jcrw_posted_by ng-binding">Posted By: {{ shift.profile.first_name }}</span></div>
+        </div>
         <h4>
             <md-icon md-svg-icon="/assets/material-design-icons/maps/svg/production/ic_flight_24px.svg"></md-icon>
             <span ng-repeat="airport in shift.airports">

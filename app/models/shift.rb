@@ -5,4 +5,5 @@ class Shift < ActiveRecord::Base
   #Shift Waypoints is basically the join table to the Airport Definitions
   has_many :shift_waypoints
   has_many :airports, through: :shift_waypoints
+  has_one :profile, through: :user
 end
