@@ -1,0 +1,17 @@
+
+<div class="jcrw-shifts-content" ng-controller="GroupBrowseCtrl as groupCtrl">
+    <section layout="row" layout-sm="column" layout-align="center center" class="jcrw-header">
+        <h3 class="md-flex">Group: {{ group.name }}</h3>
+        <span flex></span>
+        <md-button class="md-raised md-primary md-button" ng-click="newShift()">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Shift
+        </md-button>
+    </section>
+    <div layout="column" layout-fill style="padding-bottom: 32px;">
+        <md-whiteframe class="md-whiteframe-z2">
+            <div ng-repeat="shift in group.shifts" ng-click="editShift(shift)">
+                <shift-card info="shift"></shift-card>
+            </div>
+        </md-whiteframe>
+    </div>
+</div>

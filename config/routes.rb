@@ -10,7 +10,12 @@ Shifts::Application.routes.draw do
   end
 
   namespace :api do
-    resources :groups
+    resources :groups do
+      collection do
+        get 'mine'
+      end
+        post 'addusertolist' => 'groups#addusertolist'
+    end
   end
 
   namespace :api do

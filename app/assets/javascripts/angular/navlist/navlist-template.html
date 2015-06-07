@@ -10,6 +10,18 @@
                         <md-icon md-svg-icon="{{ action.icon }}" ng-class="navlist.classIfActive(action.name,'md-primary')" class="md-icon-button"> </md-icon>
                         <md-divider></md-divider>
                     </md-list-item>
+
+                    <ul ng-if="navlist.groups != null">
+                        <h4>Groups</h4>
+                    </ul>
+                    <md-list-item ng-repeat="group in navlist.groups" ng-model="navlist.groups" ng-click="selectGroup(group)">
+                        <span style="margin-left: 10px;">
+                            - {{ group.name }}
+                        </span>
+                        <md-icon md-svg-icon="/assets/material-design-icons/navigation/svg/production/ic_chevron_right_24px.svg" ng-class="navlist.classIfActive(action.name,'md-primary')" class="md-icon-button"></md-icon>
+
+                        <md-divider></md-divider>
+                    </md-list-item>
                 </md-list>
             </md-sidenav>
 
@@ -17,6 +29,7 @@
                 <div ng-switch="navlist.contentView">
                     <my-shift-browse ng-switch-when="My Shifts"></my-shift-browse>
                     <shift-browse ng-switch-when="Available Shifts"></shift-browse>
+                    <group-browse ng-switch-when="Groups"></group-browse>
                 </div>
             </md-content>
         </div>
