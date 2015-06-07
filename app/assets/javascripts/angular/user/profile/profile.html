@@ -10,22 +10,20 @@
                 <md-input-container>
                     <label for="first_name">First Name</label>
                     <input id="first_name" required ng-model="theUser.first_name" name="first_name">
-                    <div ng-messages="theUser.first_name.$error" ng-if="theUser.first_name.$dirty">
+                    <div ng-messages="editProfileForm.first_name.$error" ng-if="editProfileForm.first_name.$dirty">
                         <div ng-message="required">A first name is required.</div>
                     </div>
                 </md-input-container>
                 <md-input-container>
                     <label for="last_name">Last Name</label>
                     <input id="last_name" required ng-model="theUser.last_name" name="last_name"/>
-                    <div ng-messages="theUser.last_name.$error" ng-if="theUser.last_name.$dirty">
+                    <div ng-messages="editProfileForm.last_name.$error" ng-if="editProfileForm.last_name.$invalid && editProfileForm.last_name.$touched">
                         <div ng-message="required">An last name is required.</div>
                     </div>
                 </md-input-container>
                 <md-input-container>
                     <label for="phone">Phone</label>
                     <input id="phone" ng-model="theUser.phone" name="phone" />
-                    <div ng-messages="theUser.phone.$error" ng-if="theUser.phone.$dirty">
-                    </div>
                 </md-input-container>
                 <md-input-container>
                     <label for="region">Region</label>
@@ -47,6 +45,6 @@
     </md-dialog-content>
     <div class="md-actions" layout="row">
         <md-button class="md-raised" ng-click="cancel()">Close</md-button>
-        <md-button class="md-raised md-primary" ng-click="save()">Add</md-button>
+        <md-button class="md-raised md-primary" ng-click="save()">Update</md-button>
     </div>
 </md-dialog>
