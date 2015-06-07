@@ -1,21 +1,8 @@
-<div ng-controller="NavListCtrl as navlist" layout="vertical" layout-fill>
+<div ng-controller="NavListCtrl as navlist" layout="vertical">
 
     <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
-
-        <md-toolbar layout="row" class="md-whiteframe-z1">
-            <div class="md-toolbar-tools">
-            <md-button class="menu" aria-label="Shift Exchange">
-                <md-icon md-svg-icon="menu" ></md-icon>
-            </md-button>
-            <h1>Shift Exchange</h1>
-                <span flex></span>
-            <md-button class="md-fab md-raised md-accent md-hue-2 md-icon-button" aria-label="Profile" ng-click="navlist.launchProfile()">
-                <md-icon md-svg-icon="/assets/material-design-icons/social/svg/production/ic_person_24px.svg"></md-icon>
-            </md-button>
-            </div>
-        </md-toolbar>
-
         <div layout="vertical" flex>
+
             <md-sidenav class="md-sidenav-left md-whiteframe-z2 jcrw-navlist" md-component-id="left" md-is-locked-open ="$mdMedia('min-width: 800px')">
                 <md-list>
                     <md-list-item ng-repeat="action in navlist.actions" ng-click="navlist.selectAction(action.name)">
@@ -33,10 +20,5 @@
                 </div>
             </md-content>
         </div>
-
-
-
-
-
     </div>
 </div>

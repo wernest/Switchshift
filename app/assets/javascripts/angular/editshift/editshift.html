@@ -6,18 +6,18 @@
     <md-divider></md-divider>
     <md-dialog-content class="sticky-container">
     <div>
-            <form name="editShiftForm">
+            <form name="editShiftForm" novalidate>
                 <md-input-container>
                     <label for="title">Shift Title</label>
                     <input id="title" required ng-model="theShift.title" name="title">
-                    <div ng-messages="editShiftForm.title.$error">
+                    <div ng-messages="editShiftForm.title.$error" ng-show="editShiftForm.title.$touched && editShiftForm.title.$invalid">
                         <div ng-message="required">A title is required.</div>
                     </div>
                 </md-input-container>
                 <md-input-container>
                     <label for="origin">Origin</label>
                     <input id="origin" required ng-model="theShift.origin" name="origin" minlength="3" maxlength="3" capitalize/>
-                    <div ng-messages="editShiftForm.origin.$error">
+                    <div ng-messages="editShiftForm.origin.$error" ng-show="editShiftForm.origin.$touched && editShiftForm.origin.$invalid">
                         <div ng-message="required">An origin is required.</div>
                         <div ng-message="minlength">Please enter a 3 letter airport code.</div>
                     </div>
@@ -25,7 +25,7 @@
                 <md-input-container>
                     <label for="destination">Destination</label>
                     <input id="destination" required ng-model="theShift.destination" name="destination" minlength="3"  maxlength="3" capitalize/>
-                    <div ng-messages="editShiftForm.destination.$error">
+                    <div ng-messages="editShiftForm.destination.$error" ng-show="editShiftForm.destination.$touched && editShiftForm.destination.$invalid">
                         <div ng-message="required">A destination is required.</div>
                         <div ng-message="minlength">Please enter a 3 letter airport code.</div>
                     </div>

@@ -9,8 +9,8 @@
 </section>
     <div layout="column" layout-fill style="padding-bottom: 32px;">
         <md-whiteframe class="md-whiteframe-z2">
-            <div>
-                <shift-card info="shift" ng-repeat="shift in shifts"></shift-card>
+            <div ng-repeat="shift in shifts" ng-click="editShift(shift)">
+                <shift-card info="shift"></shift-card>
             </div>
         </md-whiteframe>
     </div>

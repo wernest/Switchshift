@@ -1,8 +1,6 @@
 var shiftsbrowser = angular.module('shiftsapp.shiftsBrowser', [
     'ngResource',
-    'ui.bootstrap',
     'ngMaterial',
-    'shiftsapp.components.auth',
     'shiftsapp.navbar',
     'shiftsapp.editShift',
     'shiftsapp.newShift',
@@ -41,6 +39,5 @@ shiftsbrowser.controller('ShiftsBrowserCtrl', ['$scope', 'ShiftResource', 'EditS
                     $scope.shifts = shiftResource.query();
                 }
             });
-
     }
 }]);

@@ -6,7 +6,8 @@ var myshifts = angular.module('shiftsapp.myShifts', [
     'shiftsapp.newShift',
     'shiftsapp.editShiftService',
     'shiftsapp.components.shiftResource',
-    'shiftsapp.components.shiftCardDirective'
+    'shiftsapp.components.shiftCardDirective',
+    'ngMessages'
 
 ]);
 
@@ -28,13 +29,16 @@ myshifts.controller('MyShiftsController', ['$scope', 'ShiftResource', 'EditShift
     };
 
     $scope.editShift = function(shift){
-
         editShiftService.updateTheShift(shift);
 
         $mdDialog.show({
             templateUrl: '/assets/angular/editshift/editshift.html',
             controller: 'EditShiftController'
+        })
+            .then(function(response){
+            if(response === "delete"){
+                $scope.shifts = shiftResource.query();
+            }
         });
-
     }
 }]);

@@ -6,39 +6,39 @@
     <md-divider></md-divider>
     <md-dialog-content class="sticky-container">
         <div>
-            <form name="editProfileForm">
+            <form name="editProfileForm" novalidate>
                 <md-input-container>
                     <label for="title">Shift Title</label>
-                    <input id="title" required ng-model="theShift.title" ng-model-options="{debounce: 250}" name="title">
-                    <div ng-messages="editProfileForm.title.$error" ng-if="editProfileForm.title.$dirty">
+                    <input id="title" required ng-model="newShift.title" ng-model-options="{'updateOn': blur}" name="title">
+                    <div ng-messages="editProfileForm.title.$error" ng-show="editProfileForm.title.$touched && editProfileForm.title.$invalid">
                         <div ng-message="required">A title is required.</div>
                     </div>
                 </md-input-container>
                 <md-input-container>
                     <label for="origin">Origin</label>
-                    <input id="origin" required ng-model="theShift.origin" name="origin" minlength="3" maxlength="3" capitalize/>
-                    <div ng-messages="editProfileForm.origin.$error" ng-if="editProfileForm.origin.$dirty">
+                    <input id="origin" required ng-model="newShift.origin" ng-model-options="{'updateOn': blur}" name="origin" minlength="3" maxlength="3" capitalize/>
+                    <div ng-messages="editProfileForm.origin.$error" ng-show="editProfileForm.origin.$touched && editProfileForm.origin.$invalid">
                         <div ng-message="required">An origin is required.</div>
                         <div ng-message="minlength">Please enter a 3 letter airport code.</div>
                     </div>
                 </md-input-container>
                 <md-input-container>
                     <label for="destination">Destination</label>
-                    <input id="destination" required ng-model="theShift.destination" name="destination" minlength="3" maxlength="3" capitalize/>
-                    <div ng-messages="editProfileForm.destination.$error" ng-if="editProfileForm.destination.$dirty">
+                    <input id="destination" required ng-model="newShift.destination" ng-model-options="{'updateOn': blur}" name="destination" minlength="3" maxlength="3" capitalize/>
+                    <div ng-messages="editProfileForm.destination.$error" ng-show="editProfileForm.destination.$touched && editProfileForm.destination.$invalid">
                         <div ng-message="required">A destination is required.</div>
                         <div ng-message="minlength">Please enter a 3 letter airport code.</div>
                     </div>
                 </md-input-container>
                 <md-input-container>
                     <label for="price">Price</label>
-                    <input id="price" required ng-model="theShift.price" name="price"/>
+                    <input id="price" ng-model="newShift.price" name="price"/>
                 </md-input-container>
             </form>
         </div>
     </md-dialog-content>
     <div class="md-actions" layout="row">
-        <md-button class="md-raised" ng-click="cancel()">Close</md-button>
-        <md-button class="md-raised md-primary" ng-click="save()">Add</md-button>
+        <md-button class="md-raised" ng-click="this.cancel()">Close</md-button>
+        <md-button class="md-raised md-primary" ng-click="this.save()">Add</md-button>
     </div>
 </md-dialog>
