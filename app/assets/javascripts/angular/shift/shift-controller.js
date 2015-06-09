@@ -1,9 +1,19 @@
 var shiftController = angular.module('shiftsapp.shift', ['ngResource', 'ngMessages', 'shiftsapp.components.shiftService']);
 
-shiftController.controller('ShiftController', ['$scope', 'ShiftResource', '$mdDialog', 'ShiftService', function($scope, shiftResource, $mdDialog, shiftService) {
+shiftController.controller('ShiftController', ['$scope', 'ShiftResource', 'AirportService', '$mdDialog', 'ShiftService', function($scope, shiftResource, airportService, $mdDialog, shiftService) {
 
     var theResponse = shiftService.theShift;
     $scope.shift = {};
+
+    /**
+     * Holds the functionality needed to drive the "chips" that show the
+     * airport stopovers
+     */
+    $scope.airportChips = {
+        'selectedItem': null,
+        'searchText': null,
+        'querySearch': airportService.query
+    };
 
     /**
      * Angulars magical DOM manipulation works through the service. The problem, is we don't want values

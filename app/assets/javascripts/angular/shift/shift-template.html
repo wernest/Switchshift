@@ -14,22 +14,22 @@
                         <div ng-message="required">A title is required.</div>
                     </div>
                 </md-input-container>
-                <md-input-container>
-                    <label for="origin">Origin</label>
-                    <input id="origin" required ng-model="shift.origin" ng-model-options="{'updateOn': blur}" name="origin" minlength="3" maxlength="3" capitalize/>
-                    <div ng-messages="shiftForm.origin.$error" ng-show="shiftForm.origin.$touched && shiftForm.origin.$invalid">
-                        <div ng-message="required">An origin is required.</div>
-                        <div ng-message="minlength">Please enter a 3 letter airport code.</div>
-                    </div>
-                </md-input-container>
-                <md-input-container>
-                    <label for="destination">Destination</label>
-                    <input id="destination" required ng-model="shift.destination" ng-model-options="{'updateOn': blur}" name="destination" minlength="3" maxlength="3" capitalize/>
-                    <div ng-messages="shiftForm.destination.$error" ng-show="shiftForm.destination.$touched && shiftForm.destination.$invalid">
-                        <div ng-message="required">A destination is required.</div>
-                        <div ng-message="minlength">Please enter a 3 letter airport code.</div>
-                    </div>
-                </md-input-container>
+                <md-chips ng-model="shift.airports" md-autocomplete-snap md-require-match>
+                    <md-autocomplete
+                            md-selected-item="airportChips.selectedItem"
+                            md-search-text="airportChips.airportSearchText"
+                            md-items="item in airportChips.querySearch(airportChips.airportSearchText)"
+                            md-item-text="airportChips.name"
+                            placeholder="Enter an airport">
+                        <span md-highlight-text="airportChips.searchText">{{item.iata}} :: {{item.name}}</span>
+                    </md-autocomplete>
+                    <md-chip-template>
+                        <span>
+                          <strong>{{$chip.iata}}</strong>
+                          <em>({{$chip.name}})</em>
+                        </span>
+                    </md-chip-template>
+                </md-chips>
                 <md-input-container>
                     <label for="price">Price</label>
                     <input id="price" ng-model="shift.price" name="price"/>

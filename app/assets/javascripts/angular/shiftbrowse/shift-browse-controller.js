@@ -3,6 +3,7 @@ var shiftsbrowser = angular.module('shiftsapp.shiftsBrowser', [
     'ngMaterial',
     'shiftsapp.navbar',
     'shiftsapp.shift',
+    'shiftsapp.components.airport',
     'shiftsapp.components.shiftService',
     'shiftsapp.components.shiftResource',
     'shiftsapp.components.shiftCardDirective'

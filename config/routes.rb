@@ -1,24 +1,23 @@
 Shifts::Application.routes.draw do
   devise_for :users, :controllers => {sessions: 'sessions', registrations: 'registrations'}
 
+  # Define the API actions/routes here.
   namespace :api do
     resources :shifts do
       collection do
         get 'me'
       end
     end
-  end
 
-  namespace :api do
+    get 'airports/query' => 'airports#query'
+
     resources :groups do
       collection do
         get 'mine'
       end
         post 'addusertolist' => 'groups#addusertolist'
     end
-  end
 
-  namespace :api do
     resources :profile
   end
 
