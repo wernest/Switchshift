@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  [iato: MyString
+  icao: MyString
+  name: MyString
+  location_served: MyString
+  timezone: 
+
+two:
+  [iato: MyString
+  icao: MyString
+  name: MyString
+  location_served: MyString
+  timezone: 
