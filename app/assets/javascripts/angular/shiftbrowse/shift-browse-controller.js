@@ -2,15 +2,14 @@ var shiftsbrowser = angular.module('shiftsapp.shiftsBrowser', [
     'ngResource',
     'ngMaterial',
     'shiftsapp.navbar',
-    'shiftsapp.editShift',
-    'shiftsapp.newShift',
-    'shiftsapp.editShiftService',
+    'shiftsapp.shift',
+    'shiftsapp.components.shiftService',
     'shiftsapp.components.shiftResource',
     'shiftsapp.components.shiftCardDirective'
 
 ]);
 
-shiftsbrowser.controller('ShiftsBrowserCtrl', ['$scope', 'ShiftResource', 'EditShiftService', '$mdDialog', function($scope, shiftResource, editShiftService, $mdDialog) {
+shiftsbrowser.controller('ShiftsBrowserCtrl', ['$scope', 'ShiftResource', 'ShiftService', '$mdDialog', function($scope, shiftResource, shiftService, $mdDialog) {
     $scope.shifts = shiftResource.query();
 
     /**
@@ -18,9 +17,11 @@ shiftsbrowser.controller('ShiftsBrowserCtrl', ['$scope', 'ShiftResource', 'EditS
      * bring up the new Shift form
      */
     $scope.newShift = function() {
+        shiftService.newShift();
+
         $mdDialog.show({
-            templateUrl: '/assets/angular/newshift/new-shift.html',
-            controller: 'NewShiftController'
+            templateUrl: '/assets/angular/shift/shift-template.html',
+            controller: 'ShiftController'
         })
             .then(function (newShift) {
                 $scope.shifts.push(newShift);
@@ -28,15 +29,17 @@ shiftsbrowser.controller('ShiftsBrowserCtrl', ['$scope', 'ShiftResource', 'EditS
     };
 
     $scope.editShift = function(shift){
-        editShiftService.updateTheShift(shift);
+        shiftService.updateTheShift(shift);
 
         $mdDialog.show({
-            templateUrl: '/assets/angular/editshift/editshift.html',
-            controller: 'EditShiftController'
+            templateUrl: '/assets/angular/shift/shift-template.html',
+            controller: 'ShiftController'
         })
             .then(function(response){
                 if(response === "delete"){
                     $scope.shifts = shiftResource.query();
+                }else{
+                    angular.extend(shift, response);
                 }
             });
     }

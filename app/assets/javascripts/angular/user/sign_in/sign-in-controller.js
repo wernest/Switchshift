@@ -11,9 +11,9 @@ angular.module('public.ctrl.signIn', [
 
             this.signIn = function() {
                 // Code to use 'angular-devise' component
-                Auth.login(this.credentials).then(function(user) {
+                Auth.login(this.credentials).then(function() {
                     $window.location.href='/shift_exchange';
-                }, function(error) {
+                }, function() {
                     console.info('Error in authenticating user!');
                     alert('Error in signing in user!');
                 });

@@ -1,44 +1,45 @@
 <md-dialog aria-label="New Shift" class="newShiftDialog">
     <md-subheader>
         <md-icon md-svg-icon="/assets/material-design-icons/navigation/svg/production/ic_close_24px.svg" ng-click="cancel()" class="close"></md-icon>
-        <h4 class="modal-title" id="myModalLabel">Add New Shift</h4>
+        <h4 class="modal-title" id="myModalLabel" ng-bind="title"></h4>
     </md-subheader>
     <md-divider></md-divider>
     <md-dialog-content class="sticky-container">
         <div>
-            <form name="editProfileForm" novalidate>
+            <form name="shiftForm" novalidate>
                 <md-input-container>
                     <label for="title">Shift Title</label>
-                    <input id="title" required ng-model="newShift.title" ng-model-options="{'updateOn': blur}" name="title">
-                    <div ng-messages="editProfileForm.title.$error" ng-show="editProfileForm.title.$touched && editProfileForm.title.$invalid">
+                    <input id="title" required ng-model="shift.title" ng-model-options="{'updateOn': blur}" name="title">
+                    <div ng-messages="shiftForm.title.$error" ng-show="shiftForm.title.$touched && shiftForm.title.$invalid">
                         <div ng-message="required">A title is required.</div>
                     </div>
                 </md-input-container>
                 <md-input-container>
                     <label for="origin">Origin</label>
-                    <input id="origin" required ng-model="newShift.origin" ng-model-options="{'updateOn': blur}" name="origin" minlength="3" maxlength="3" capitalize/>
-                    <div ng-messages="editProfileForm.origin.$error" ng-show="editProfileForm.origin.$touched && editProfileForm.origin.$invalid">
+                    <input id="origin" required ng-model="shift.origin" ng-model-options="{'updateOn': blur}" name="origin" minlength="3" maxlength="3" capitalize/>
+                    <div ng-messages="shiftForm.origin.$error" ng-show="shiftForm.origin.$touched && shiftForm.origin.$invalid">
                         <div ng-message="required">An origin is required.</div>
                         <div ng-message="minlength">Please enter a 3 letter airport code.</div>
                     </div>
                 </md-input-container>
                 <md-input-container>
                     <label for="destination">Destination</label>
-                    <input id="destination" required ng-model="newShift.destination" ng-model-options="{'updateOn': blur}" name="destination" minlength="3" maxlength="3" capitalize/>
-                    <div ng-messages="editProfileForm.destination.$error" ng-show="editProfileForm.destination.$touched && editProfileForm.destination.$invalid">
+                    <input id="destination" required ng-model="shift.destination" ng-model-options="{'updateOn': blur}" name="destination" minlength="3" maxlength="3" capitalize/>
+                    <div ng-messages="shiftForm.destination.$error" ng-show="shiftForm.destination.$touched && shiftForm.destination.$invalid">
                         <div ng-message="required">A destination is required.</div>
                         <div ng-message="minlength">Please enter a 3 letter airport code.</div>
                     </div>
                 </md-input-container>
                 <md-input-container>
                     <label for="price">Price</label>
-                    <input id="price" ng-model="newShift.price" name="price"/>
+                    <input id="price" ng-model="shift.price" name="price"/>
                 </md-input-container>
             </form>
         </div>
     </md-dialog-content>
     <div class="md-actions" layout="row">
-        <md-button class="md-raised" ng-click="this.cancel()">Close</md-button>
-        <md-button class="md-raised md-primary" ng-click="this.save()">Add</md-button>
+        <md-button class="md-raised" ng-click="cancel()">Cancel</md-button>
+        <md-button class="md-raised md-warn" ng-click="delete()" ng-if="!newShift">Delete</md-button>
+        <md-button class="md-raised md-primary" ng-click="save()">Save</md-button>
     </div>
 </md-dialog>

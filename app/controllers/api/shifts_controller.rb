@@ -10,7 +10,7 @@ class ShiftsController < ApplicationController
     shift = Shift.new(safe_shift_params)
     shift.user = current_user
 
-    shift.save
+    shift.save!
     render json: shift
   end
 

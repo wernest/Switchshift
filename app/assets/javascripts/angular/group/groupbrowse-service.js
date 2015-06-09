@@ -10,5 +10,6 @@ editShiftService.factory('GroupBrowserService', ['$rootScope','GroupResource', f
         this.theGroup = groupResource.get({id: theGroup.id});
     };
 
+
     return theGroup;
 }]);

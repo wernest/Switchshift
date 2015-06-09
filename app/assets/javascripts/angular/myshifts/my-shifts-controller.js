@@ -2,16 +2,15 @@ var myshifts = angular.module('shiftsapp.myShifts', [
     'ngResource',
     'ngMaterial',
     'shiftsapp.navbar',
-    'shiftsapp.editShift',
-    'shiftsapp.newShift',
-    'shiftsapp.editShiftService',
+    'shiftsapp.shift',
+    'shiftsapp.components.shiftService',
     'shiftsapp.components.shiftResource',
     'shiftsapp.components.shiftCardDirective',
     'ngMessages'
 
 ]);
 
-myshifts.controller('MyShiftsController', ['$scope', 'ShiftResource', 'EditShiftService', '$mdDialog', function($scope, shiftResource, editShiftService, $mdDialog) {
+myshifts.controller('MyShiftsController', ['$scope', 'ShiftResource', 'ShiftService', '$mdDialog', function($scope, shiftResource, shiftService, $mdDialog) {
     $scope.shifts = shiftResource.mine();
 
     /**
@@ -19,9 +18,11 @@ myshifts.controller('MyShiftsController', ['$scope', 'ShiftResource', 'EditShift
      * bring up the new Shift form
      */
     $scope.newShift = function() {
+        shiftService.newShift();
+
         $mdDialog.show({
-            templateUrl: '/assets/angular/newshift/new-shift.html',
-            controller: 'NewShiftController'
+            templateUrl: '/assets/angular/shift/shift-template.html',
+            controller: 'ShiftController'
         })
             .then(function (newShift) {
                 $scope.shifts.push(newShift);
@@ -29,16 +30,18 @@ myshifts.controller('MyShiftsController', ['$scope', 'ShiftResource', 'EditShift
     };
 
     $scope.editShift = function(shift){
-        editShiftService.updateTheShift(shift);
+        shiftService.updateTheShift(shift);
 
         $mdDialog.show({
-            templateUrl: '/assets/angular/editshift/editshift.html',
-            controller: 'EditShiftController'
+            templateUrl: '/assets/angular/shift/shift-template.html',
+            controller: 'ShiftController'
         })
             .then(function(response){
-            if(response === "delete"){
-                $scope.shifts = shiftResource.query();
-            }
-        });
+                if(response === "delete"){
+                    $scope.shifts = shiftResource.query();
+                }else{
+                    angular.extend(shift, response);
+                }
+            });
     }
 }]);

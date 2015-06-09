@@ -22,10 +22,8 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-.shift-logo {
-  background: url('/assets/logo_large.png');
-  background-size: cover;
-  height: 250px;
+[ng-cloak] {
+  display: none;
 }
 
 md-dialog{
@@ -37,7 +35,7 @@ md-dialog{
 }
 
 .jcrw-shifts-content {
-  padding: 0px 72px;
+  padding: 0 72px;
 }
 
 .jcrw-shifts-content .md-whiteframe-z1 {
@@ -54,11 +52,11 @@ md-dialog{
 }
 
 .jcrw-header {
-  padding: 0px 16px;
+  padding: 0 16px;
 }
 
 .jcrw-hanging-navbar {
-  height: 0px;
+  height: 0;
 }
 
 .jcrw-hanging-navbar .md-icon-button {
