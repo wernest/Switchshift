@@ -21,7 +21,7 @@ shiftsbrowser.controller('ShiftsBrowserCtrl', ['$scope', 'ShiftResource', '$mdDi
             templateUrl: '/assets/angular/shift/shift-template.html',
             controller: 'ShiftController',
             locals: {
-                shift: null
+                providedShift: null
             }
         })
             .then(function (newShift) {
@@ -35,7 +35,7 @@ shiftsbrowser.controller('ShiftsBrowserCtrl', ['$scope', 'ShiftResource', '$mdDi
             templateUrl: '/assets/angular/shift/shift-template.html',
             controller: 'ShiftController',
             locals: {
-                shift: shift
+                providedShift: shift
             }
         })
             .then(function(response){
