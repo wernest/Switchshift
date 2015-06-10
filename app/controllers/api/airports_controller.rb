@@ -3,7 +3,8 @@ module Api
     before_action :authenticate_user!
 
     def query
-      render json: Airport.where('iata like ?', '%' + safe_params[:query] + '%')
+      query_param = safe_params[:query] + '%'
+      render json: Airport.where('iata like ? or name like ?', query_param, query_param).limit(10)
     end
 
     private
