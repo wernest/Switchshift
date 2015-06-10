@@ -26,15 +26,18 @@ groupbrowser.controller('GroupBrowseCtrl', ['$scope', '$mdDialog', 'GroupBrowser
 
             $mdDialog.show({
                 templateUrl: '/assets/angular/shift/shift-template.html',
-                controller: 'ShiftController'
+                controller: 'ShiftController',
+                locals: {
+                    shift: null
+                }
             })
                 .then(function (newShift) {
                     $scope.shifts.push(newShift);
                 });
         };
 
-
         $scope.editShift = function(shift){
+
             $mdDialog.show({
                 templateUrl: '/assets/angular/shift/shift-template.html',
                 controller: 'ShiftController',
@@ -50,5 +53,4 @@ groupbrowser.controller('GroupBrowseCtrl', ['$scope', '$mdDialog', 'GroupBrowser
                     }
                 });
         }
-
     }]);

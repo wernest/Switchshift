@@ -19,11 +19,14 @@ shiftsbrowser.controller('ShiftsBrowserCtrl', ['$scope', 'ShiftResource', '$mdDi
 
         $mdDialog.show({
             templateUrl: '/assets/angular/shift/shift-template.html',
-            controller: 'ShiftController'
+            controller: 'ShiftController',
+            locals: {
+                shift: null
+            }
         })
             .then(function (newShift) {
                 $scope.shifts.push(newShift);
-        });
+            });
     };
 
     $scope.editShift = function(shift){
