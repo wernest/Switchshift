@@ -2,15 +2,13 @@ var shiftsbrowser = angular.module('shiftsapp.shiftsBrowser', [
     'ngResource',
     'ngMaterial',
     'shiftsapp.navbar',
-    'shiftsapp.shift',
     'shiftsapp.components.airport',
-    'shiftsapp.components.shiftService',
     'shiftsapp.components.shiftResource',
-    'shiftsapp.components.shiftCardDirective'
+    'shiftsapp.shift'
 
 ]);
 
-shiftsbrowser.controller('ShiftsBrowserCtrl', ['$scope', 'ShiftResource', 'ShiftService', '$mdDialog', function($scope, shiftResource, shiftService, $mdDialog) {
+shiftsbrowser.controller('ShiftsBrowserCtrl', ['$scope', 'ShiftResource', '$mdDialog', function($scope, shiftResource, $mdDialog) {
     $scope.shifts = shiftResource.query();
 
     /**
@@ -18,7 +16,6 @@ shiftsbrowser.controller('ShiftsBrowserCtrl', ['$scope', 'ShiftResource', 'Shift
      * bring up the new Shift form
      */
     $scope.newShift = function() {
-        shiftService.newShift();
 
         $mdDialog.show({
             templateUrl: '/assets/angular/shift/shift-template.html',
@@ -30,11 +27,13 @@ shiftsbrowser.controller('ShiftsBrowserCtrl', ['$scope', 'ShiftResource', 'Shift
     };
 
     $scope.editShift = function(shift){
-        shiftService.updateTheShift(shift);
 
         $mdDialog.show({
             templateUrl: '/assets/angular/shift/shift-template.html',
-            controller: 'ShiftController'
+            controller: 'ShiftController',
+            locals: {
+                shift: shift
+            }
         })
             .then(function(response){
                 if(response === "delete"){

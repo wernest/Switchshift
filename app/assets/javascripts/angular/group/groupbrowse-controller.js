@@ -2,13 +2,12 @@ var groupbrowser = angular.module('shiftsapp.groupBrowser', [
     'ngResource',
     'ngMaterial',
     'shiftsapp.navbar',
-    'shiftsapp.components.shiftService',
-    'shiftsapp.components.shiftResource',
-    'shiftsapp.groupBrowser.service'
+    'shiftsapp.groupBrowser.service',
+    'shiftsapp.shift'
 ]);
 
-groupbrowser.controller('GroupBrowseCtrl', ['$scope','ShiftService', '$mdDialog', 'GroupBrowserService',
-    function($scope, shiftService, $mdDialog, groupBrowseService) {
+groupbrowser.controller('GroupBrowseCtrl', ['$scope', '$mdDialog', 'GroupBrowserService',
+    function($scope, $mdDialog, groupBrowseService) {
 
         $scope.group = groupBrowseService.theGroup;
 
@@ -24,7 +23,6 @@ groupbrowser.controller('GroupBrowseCtrl', ['$scope','ShiftService', '$mdDialog'
          * bring up the new Shift form
          */
         $scope.newShift = function() {
-            shiftService.newShift();
 
             $mdDialog.show({
                 templateUrl: '/assets/angular/shift/shift-template.html',
@@ -35,12 +33,14 @@ groupbrowser.controller('GroupBrowseCtrl', ['$scope','ShiftService', '$mdDialog'
                 });
         };
 
-        $scope.editShift = function(shift){
-            shiftService.updateTheShift(shift);
 
+        $scope.editShift = function(shift){
             $mdDialog.show({
                 templateUrl: '/assets/angular/shift/shift-template.html',
-                controller: 'ShiftController'
+                controller: 'ShiftController',
+                locals: {
+                    shift: shift
+                }
             })
                 .then(function(response){
                     if(response === "delete"){

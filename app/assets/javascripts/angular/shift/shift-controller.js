@@ -1,9 +1,17 @@
-var shiftController = angular.module('shiftsapp.shift', ['ngResource', 'ngMessages', 'shiftsapp.components.shiftService']);
+var shiftController = angular.module('shiftsapp.shift', ['ngResource', 'ngMessages']);
 
-shiftController.controller('ShiftController', ['$scope', 'ShiftResource', 'AirportService', '$mdDialog', 'ShiftService', function($scope, shiftResource, airportService, $mdDialog, shiftService) {
+shiftController.controller('ShiftController', ['$scope', 'ShiftResource', 'AirportService', '$mdDialog', 'shift', function($scope, shiftResource, airportService, $mdDialog, shift) {
 
-    var theResponse = shiftService.theShift;
-    $scope.shift = {};
+    //Initialize objects for New Form.
+    $scope.title = "Add Shift";
+    $scope.shift = {
+        airports: [] // need to initialize this or the airports field doesn't work for new shifts form
+    };
+
+    if(shift) {
+        angular.copy(shift, $scope.shift);
+        $scope.title = "Edit Shift";
+    }
 
     /**
      * Holds the functionality needed to drive the "chips" that show the
@@ -16,28 +24,12 @@ shiftController.controller('ShiftController', ['$scope', 'ShiftResource', 'Airpo
     };
 
     /**
-     * Angulars magical DOM manipulation works through the service. The problem, is we don't want values
-     * the user is typing into here, to immediately render in the view behind this modal.
-     *
-     * The copy removes the $$hashkey value, which is what angular uses to track changes on
-     * objects that come from ng-repeat.
-     */
-    angular.copy(theResponse.theShift, $scope.shift);
-
-    $scope.newShift = theResponse.newShift;
-
-    $scope.title = "Add Shift";
-    if(!$scope.newShift){
-        $scope.title = "Edit Shift";
-    }
-
-    /**
      * If it's a new shift, we just call save. We get the response and pass it back to the Controller to update
      * the DOM.
      */
     $scope.save = function() {
         var shiftFromServer = {};
-        if($scope.newShift){
+        if(!$scope.shift.id){
             shiftFromServer = shiftResource.save($scope.shift);
         }else {
             shiftFromServer = shiftResource.update($scope.shift);

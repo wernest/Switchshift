@@ -39,7 +39,7 @@
     </md-dialog-content>
     <div class="md-actions" layout="row">
         <md-button class="md-raised" ng-click="cancel()">Cancel</md-button>
-        <md-button class="md-raised md-warn" ng-click="delete()" ng-if="!newShift">Delete</md-button>
+        <md-button class="md-raised md-warn" ng-click="delete()" ng-if="shift.id">Delete</md-button>
         <md-button class="md-raised md-primary" ng-click="save()">Save</md-button>
     </div>
 </md-dialog>
