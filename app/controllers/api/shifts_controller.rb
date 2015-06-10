@@ -25,6 +25,7 @@ class ShiftsController < ApplicationController
 
   def update
     shift = Shift.find(safe_id_param[:id])
+    puts shift.airports
     if shift.user == current_user then
       shift.update(safe_shift_params)
       render json: shift, :status => 200
@@ -46,7 +47,7 @@ class ShiftsController < ApplicationController
 
   private
   def safe_shift_params
-    params.require(:airports).permit(:title, :origin, :destination, :price, :airports => [])
+    params.permit(:title, :origin, :destination, :price, :airports => [])
   end
 
   def safe_id_param
