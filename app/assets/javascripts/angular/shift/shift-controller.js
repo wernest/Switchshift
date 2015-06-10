@@ -1,6 +1,6 @@
 var shiftController = angular.module('shiftsapp.shift', ['ngResource', 'ngMessages']);
 
-shiftController.controller('ShiftController', ['$scope', 'ShiftResource', 'AirportService', '$mdDialog', 'shift', function($scope, shiftResource, airportService, $mdDialog, shift) {
+shiftController.controller('ShiftController', ['$scope', 'ShiftResource', 'AirportService', '$mdDialog', 'providedShift', function($scope, shiftResource, airportService, $mdDialog, providedShift) {
 
     //Initialize objects for New Form.
     $scope.title = "Add Shift";
@@ -8,8 +8,8 @@ shiftController.controller('ShiftController', ['$scope', 'ShiftResource', 'Airpo
         airports: [] // need to initialize this or the airports field doesn't work for new shifts form
     };
 
-    if(shift) {
-        angular.copy(shift, $scope.shift);
+    if(providedShift) {
+        angular.copy(providedShift, $scope.shift);
         $scope.title = "Edit Shift";
     }
 

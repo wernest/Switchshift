@@ -22,7 +22,7 @@ myshifts.controller('MyShiftsController', ['$scope', 'ShiftResource', '$mdDialog
             templateUrl: '/assets/angular/shift/shift-template.html',
             controller: 'ShiftController',
             locals: {
-                shift: null
+                providedShift: null
             }
         })
             .then(function (newShift) {
@@ -36,7 +36,7 @@ myshifts.controller('MyShiftsController', ['$scope', 'ShiftResource', '$mdDialog
             templateUrl: '/assets/angular/shift/shift-template.html',
             controller: 'ShiftController',
             locals: {
-                shift: shift
+                providedShift: shift
             }
         })
             .then(function(response){
