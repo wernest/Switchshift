@@ -22,7 +22,7 @@ angular.module('shiftsapp.navlist', [
             icon: "/assets/material-design-icons/action/svg/production/ic_list_24px.svg"
         }, {
             name: "Groups",
-            icon: "/assets/material-design-icons/action/svg/production/ic_view_list_24px.svg"
+            icon: "/assets/material-design-icons/social/svg/production/ic_group_24px.svg"
         },
             {
             name: "Sign Out",
