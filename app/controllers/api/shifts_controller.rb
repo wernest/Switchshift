@@ -25,7 +25,6 @@ class ShiftsController < ApplicationController
 
   def update
     shift = Shift.find(safe_id_param[:id])
-    puts shift.airports
     if shift.user == current_user then
       shift.update(safe_shift_params)
       render json: shift, :status => 200

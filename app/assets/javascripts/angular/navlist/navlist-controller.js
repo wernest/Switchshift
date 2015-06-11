@@ -5,7 +5,8 @@ angular.module('shiftsapp.navlist', [
     'shiftsapp.components.auth',
     'shiftsapp.components.groupResource',
     'shiftsapp.groupBrowser',
-    'shiftsapp.groupBrowser.service'
+    'shiftsapp.groupBrowser.service',
+    'shiftsapp.group'
 ])
 
     .controller('NavListCtrl', ['$scope', '$window', '$mdDialog', 'Auth', 'GroupResource', 'GroupBrowserService',
@@ -71,6 +72,28 @@ angular.module('shiftsapp.navlist', [
          $scope.selectGroup = function (group){
              groupBrowseService.updateTheGroup(group);
              self.contentView = self.actions[2].name;
+        };
+
+        $scope.launchGroupForm = function(providedGroup){
+            $mdDialog.show({
+                templateUrl: '/assets/angular/addgroup/addgroup-template.html',
+                controller: 'GroupController',
+                locals: {
+                    providedGroup: providedGroup
+                }
+            })
+                .then(function(response){
+
+                if(response == "delete"){
+                    self.groups = groupResource.mine();
+                } else {
+                    if(providedGroup.id){
+                        angular.extend(response, providedGroup);
+                    } else {
+                        self.groups.push(response);
+                    }
+                }
+            });
         }
 
     }

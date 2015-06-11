@@ -30,7 +30,7 @@ class GroupsController < ApplicationController
   end
 
   def create
-    group = Group.new(safe_group_params)
+    group = Group.create(safe_group_params)
     group.users<<(current_user)
     group.created_by = current_user.id
     group.save!

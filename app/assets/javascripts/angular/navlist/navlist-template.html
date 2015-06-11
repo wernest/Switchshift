@@ -5,19 +5,26 @@
 
             <md-sidenav class="md-sidenav-left md-whiteframe-z2 jcrw-navlist" md-component-id="left" md-is-locked-open ="$mdMedia('min-width: 800px')">
                 <md-list>
-                    <md-list-item ng-repeat="action in navlist.actions" ng-click="navlist.selectAction(action.name)">
+                    <md-list-item ng-repeat="action in navlist.actions" ng-click="navlist.selectAction(action.name)" class="jcrw-navlist-clickable-items">
                         {{ action.name }}
                         <md-icon md-svg-icon="{{ action.icon }}" ng-class="navlist.classIfActive(action.name,'md-primary')" class="md-icon-button"> </md-icon>
                         <md-divider></md-divider>
                     </md-list-item>
 
-                    <ul ng-if="navlist.groups != null">
+                    <md-list-item ng-if="navlist.groups != null">
                         <h4>Groups</h4>
-                    </ul>
-                    <md-list-item ng-repeat="group in navlist.groups" ng-model="navlist.groups" ng-click="selectGroup(group)">
+                        <span flex></span>
+                        <md-icon md-svg-icon="/assets/material-design-icons/content/svg/production/ic_add_box_24px.svg"
+                                 ng-class="navlist.classIfActive(action.name,'md-primary')"
+                                 class="md-icon-button jcrw-navlist-group-icon"
+                                 ng-click="launchGroupForm({})">
+                        </md-icon>
+                        </md-list-item>
+                    <md-list-item ng-repeat="group in navlist.groups" ng-model="navlist.groups" ng-click="selectGroup(group)" class="jcrw-navlist-clickable-items">
                         <span style="margin-left: 10px;">
                             - {{ group.name }}
                         </span>
+                        <span flex></span>
                         <md-icon md-svg-icon="/assets/material-design-icons/navigation/svg/production/ic_chevron_right_24px.svg" ng-class="navlist.classIfActive(action.name,'md-primary')" class="md-icon-button"></md-icon>
 
                         <md-divider></md-divider>

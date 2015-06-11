@@ -66,8 +66,20 @@ md-dialog{
 /* Somehow, the hover state gives us the color of the
  * background transition when clicking an item
  */
-.jcrw-navlist md-list-item:hover{
+.jcrw-navlist-clickable-items:hover{
   background-color: rgba(193, 193, 193, 0.96);
   color: rgba(44, 65, 164, 0.96);
   transition: 0.3s;
+}
+
+.jcrw-navlist-groupheader{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.jcrw-navlist-group-icon:hover{
+  background-color: rgba(193, 193, 193, 0.96);
+  color: rgba(44, 65, 164, 0.96);
+  transition: 0.3s;
+  cursor: pointer;
 }
