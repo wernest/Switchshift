@@ -38,7 +38,7 @@ class GroupsController < ApplicationController
   end
 
   def update
-    group = Group.find(safe_id_param)
+    group = Group.find(safe_id_param[:id])
     if group.created_by == current_user.id
       group.update(safe_group_params)
       render json: group
@@ -48,7 +48,7 @@ class GroupsController < ApplicationController
   end
 
   def addusertogroup
-    group = Group.find(safe_id_param)
+    group = Group.find(safe_id_param[:id])
     if group.created_by == current_user.id
       render :nothing => true, :status => 200
     end
@@ -58,7 +58,7 @@ class GroupsController < ApplicationController
   end
 
   def destroy
-    group = Group.find(safe_id_param)
+    group = Group.find(safe_id_param[:id])
     if group.created_by == current_user.id
       Group.delete(group)
       render :nothing => true, :status => 200

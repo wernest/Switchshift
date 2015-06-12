@@ -6,8 +6,8 @@ var groupbrowser = angular.module('shiftsapp.groupBrowser', [
     'shiftsapp.shift'
 ]);
 
-groupbrowser.controller('GroupBrowseCtrl', ['$scope', '$mdDialog', 'GroupBrowserService',
-    function($scope, $mdDialog, groupBrowseService) {
+groupbrowser.controller('GroupBrowseCtrl', ['$scope', '$mdDialog', 'GroupBrowserService', '$rootScope',
+    function($scope, $mdDialog, groupBrowseService, $rootScope) {
 
         $scope.group = groupBrowseService.theGroup;
 
@@ -50,6 +50,27 @@ groupbrowser.controller('GroupBrowseCtrl', ['$scope', '$mdDialog', 'GroupBrowser
                         $scope.shifts = shiftResource.query();
                     }else{
                         angular.extend(shift, response);
+                    }
+                });
+        };
+
+        $scope.launchGroupForm = function(providedGroup){
+            $mdDialog.show({
+                templateUrl: '/assets/angular/addgroup/addgroup-template.html',
+                controller: 'GroupController',
+                locals: {
+                    providedGroup: providedGroup
+                }
+            })
+                .then(function(response){
+                    if(response == "delete"){
+                        $rootScope.$emit("rootScope:groupDeleted", providedGroup);
+                    } else {
+                        if(providedGroup.id){
+                            angular.extend(response, providedGroup);
+                        } else {
+                            self.groups.push(response);
+                        }
                     }
                 });
         }

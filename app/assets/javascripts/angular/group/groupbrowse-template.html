@@ -1,8 +1,12 @@
-
 <div class="jcrw-shifts-content" ng-controller="GroupBrowseCtrl as groupCtrl">
     <section layout="row" layout-sm="column" layout-align="center center" class="jcrw-header">
         <h3 class="md-flex">Group: {{ group.name }}</h3>
         <span flex></span>
+        <md-button class="md-icon-button" aria-label="Group Settings" ng-click="launchGroupForm(group)">
+            <md-icon aria-hidden="true"
+                     md-svg-icon="/assets/material-design-icons/action/svg/production/ic_settings_48px.svg"
+                     class="md-icon-button"></md-icon>
+        </md-button>
         <md-button class="md-raised md-primary md-button" ng-click="newShift()">
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Shift
         </md-button>

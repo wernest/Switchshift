@@ -9,8 +9,8 @@ angular.module('shiftsapp.navlist', [
     'shiftsapp.group'
 ])
 
-    .controller('NavListCtrl', ['$scope', '$window', '$mdDialog', 'Auth', 'GroupResource', 'GroupBrowserService',
-    function ($scope, $window, $mdDialog, auth, groupResource, groupBrowseService) {
+    .controller('NavListCtrl', ['$scope', '$window', '$mdDialog', 'Auth', 'GroupResource', 'GroupBrowserService', '$rootScope',
+    function ($scope, $window, $mdDialog, auth, groupResource, groupBrowseService, $rootScope) {
         var self = this;
 
         self.selected = null;
@@ -94,7 +94,12 @@ angular.module('shiftsapp.navlist', [
                     }
                 }
             });
-        }
+        };
+
+        $rootScope.$on("rootScope:groupDeleted", function(event, args){
+            self.groups = groupResource.mine();
+            event.stopPropagation();
+        })
 
     }
 ]);
