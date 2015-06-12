@@ -8,6 +8,7 @@ var navbar = angular.module('shiftsapp.navbar', [
 navbar.controller('NavbarController', ['$scope', 'Auth', '$window', '$http', '$location', '$mdDialog', function($scope, auth, $window, $http, $location, $mdDialog) {
 
     var currentUserEmail = $scope.currentUserEmail;
+    $scope.windowLocation = $location.path();
 
     //This is used to set which nav-bar item is active, but needs to be fixed
     //to use will's new directive
