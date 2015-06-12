@@ -28,8 +28,7 @@ class ShiftsController < ApplicationController
     if shift.user == current_user then
       shift_params = safe_shift_params
       add_stop_number_to_waypoints(shift_params[:shift_waypoints_attributes])
-      puts "XXX: " + shift_params[:shift_waypoints_attributes].to_s
-      shift.update(safe_shift_params)
+      shift.update(shift_params)
       render json: shift, :status => 200
     else
       render :nothing => true, :status => 403
@@ -49,7 +48,9 @@ class ShiftsController < ApplicationController
 
   private
   def safe_shift_params
-    params.permit(:title, :origin, :destination, :price, shift_waypoints_attributes: [:airport_id])
+    # TODO need to uncomment this once I fix it so that it will destroy the old ones -Rob
+    #params.permit(:title, :origin, :destination, :price, shift_waypoints_attributes: [:airport_id])
+    params.permit(:title, :origin, :destination, :price)
   end
 
   def safe_id_param
@@ -57,9 +58,7 @@ class ShiftsController < ApplicationController
   end
 
   def add_stop_number_to_waypoints(waypoints)
-    waypoints.each.with_index { |waypoint, i|
-      waypoint[:stop_number] = i
-    }
+    waypoints.each.with_index { |waypoint, i| waypoint[:stop_number] = i  } unless waypoints.nil?
   end
 end
 
