@@ -26,6 +26,9 @@ class ShiftsController < ApplicationController
   def update
     shift = Shift.find(safe_id_param[:id])
     if shift.user == current_user then
+      shift_params = safe_shift_params
+      add_stop_number_to_waypoints(shift_params[:shift_waypoints_attributes])
+      puts "XXX: " + shift_params[:shift_waypoints_attributes].to_s
       shift.update(safe_shift_params)
       render json: shift, :status => 200
     else
@@ -46,11 +49,17 @@ class ShiftsController < ApplicationController
 
   private
   def safe_shift_params
-    params.permit(:title, :origin, :destination, :price, :airports => [])
+    params.permit(:title, :origin, :destination, :price, shift_waypoints_attributes: [:airport_id])
   end
 
   def safe_id_param
     params.permit(:id)
+  end
+
+  def add_stop_number_to_waypoints(waypoints)
+    waypoints.each.with_index { |waypoint, i|
+      waypoint[:stop_number] = i
+    }
   end
 end
 

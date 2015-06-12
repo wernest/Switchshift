@@ -30,9 +30,9 @@ shiftController.controller('ShiftController', ['$scope', 'ShiftResource', 'Airpo
     $scope.save = function() {
         var shiftFromServer = {};
         if(!$scope.shift.id){
-            shiftFromServer = shiftResource.save($scope.shift);
+            shiftFromServer = shiftResource.save(buildShiftForSavingToServer());
         }else {
-            shiftFromServer = shiftResource.update($scope.shift);
+            shiftFromServer = shiftResource.update(buildShiftForSavingToServer());
         }
         $mdDialog.hide(shiftFromServer);
     };
@@ -48,5 +48,27 @@ shiftController.controller('ShiftController', ['$scope', 'ShiftResource', 'Airpo
 
     $scope.cancel = function () {
         $mdDialog.cancel();
+    };
+
+    /**
+     * Converts the scope's shift into something better
+     * suited for sending to the server
+     */
+    var buildShiftForSavingToServer = function() {
+        var waypoints = [];
+        if($scope.shift.airports) {
+            for(var i = 0; i < $scope.shift.airports.length; i++) {
+                waypoints.push({
+                    airport_id: $scope.shift.airports[i].id
+                });
+            }
+        }
+
+        return {
+            id: $scope.shift.id,
+            title: $scope.shift.title,
+            price: $scope.shift.price,
+            shift_waypoints_attributes: waypoints
+        };
     };
 }]);
