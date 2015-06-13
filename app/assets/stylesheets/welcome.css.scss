@@ -2,16 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.bg{
-  min-height: 100%;
-  min-width: 1024px;
-  width: 100%;
-  height: auto;
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-
 .whiteframeCover md-whiteframe {
   background:rgba(255,255,255,0.5);
   margin: 20px;
@@ -28,3 +18,27 @@
 .md-dialog-container{
   overflow:hidden;
   }
+
+.business-header {
+  height: 500px;
+  background: url('/assets/index_background.jpg') center top no-repeat scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+/* Customize the text color and shadow color and to optimize text legibility. */
+
+.tagline {
+  text-shadow: 0 0 5px #000;
+  color: #fff;
+}
+
+.img-center {
+  margin: 0 auto;
+}
+
+footer {
+  margin: 50px 0;
+}

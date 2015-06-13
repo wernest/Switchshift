@@ -1,15 +1,85 @@
-<img src="/assets/index_background.jpg" class="bg">
-<div layout="column" layout-align="center center" class="whiteframeCover" ng-controller="WelcomeController">
-  <md-whiteframe class="md-whiteframe-z3" layout="" layout-align="center center">
-    <div layout="column" layout-align="center center">
-      <h1>Welcome!</h1>
-      <p>This is a site where American Airlines employess can swap shifts.  See below for some shifts available now!</p>
-      <p>
-      <div layout="row" layout-padding layout-align="center center">
-        <md-button class="md-primary md-raised" ng-click="register()">Create an Account to Start</md-button>
-        <md-button class="md-primary md-raised" ng-click="signIn()">Sign in</md-button>
-      </div>
-      </p>
+  <!-- Custom CSS -->
+  <% content_for :head do%>
+        <link href="css/business-frontpage.css" rel="stylesheet">
+<% end %>
+
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Switch Shift</a>
     </div>
-  </md-whiteframe>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse pull-right" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li>
+          <md-button class="md-primary md-raised" ng-click="signIn()">Sign in</md-button>
+        </li>
+        <li>
+          <md-button class="md-primary md-raised" ng-click="register()">Register</md-button>
+
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+
+<!-- Image Background Page Header -->
+<!-- Note: The background image is set within the business-casual.css file. -->
+<header class="business-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="tagline" style="margin: 60px;">There's an easier way to trade your shifts.</h1>
+
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Page Content -->
+<div class="container">
+
+  <hr>
+
+  <div class="row">
+
+  </div>
+  <!-- /.row -->
+
+  <div class="row center">
+    <div class="col-sm-4">
+      <img class="img-circle img-responsive img-center" src="/assets/grouptext.png" alt="">
+      <h2>Tired of Texting?</h2>
+      <p>Texting all your co-workers to see if they can take your shift, or if they have any available is a pain. Let us manage letting your co-workers know that there are shifts available. If they take one, we'll let you know. All without a hassle.</p>
+    </div>
+    <div class="col-sm-4">
+      <img class="img-circle img-responsive img-center" src="/assets/phone.png" alt="">
+      <h2>Bounties</h2>
+      <p>Sometimes, you just really have something else that you have to do. Put a bounty on it, and be sure to get the time off you need. </p>
+    </div>
+  </div>
+  <!-- /.row -->
+
+  <hr>
+
+  <!-- Footer -->
+  <footer>
+    <div class="row">
+      <div class="col-lg-12">
+        <p>Copyright &copy; SwitchShift.com 2015</p>
+      </div>
+    </div>
+    <!-- /.row -->
+  </footer>
+
 </div>
